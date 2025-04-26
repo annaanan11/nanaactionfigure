@@ -76,6 +76,27 @@
       text-align: center;
       color: #b07b78;
     }
+    .buy-section {
+  text-align: center;
+  margin-top: 20px;
+}
+.buy-section button {
+  padding: 8px 20px;
+  font-size: 1em;
+  background-color: #f8b7b7;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.buy-section button:hover {
+  background-color: #f28f8f;
+}
+.buy-section button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
     footer {
       text-align: center;
       font-size: 0.9em;
@@ -163,7 +184,14 @@
     ✦ 你的狗狗
     <div class="quote">"In the stillness of the moon, he awaits only you."</div>
   </div>
+
+  <!-- 加購物車區塊 -->
+  <div class="buy-section" id="li-li">
+    <p>庫存：<span class="stock">5</span> 件</p>
+    <button onclick="addToCart('li-li')">加入購物車</button>
+  </div>
 </section>
+
 
 <!-- ------- 修（Hugh） ------- -->
 <section class="character-section">
@@ -235,6 +263,25 @@
 <footer>
   感謝你走進春綺樓的世界 🌸
 </footer>
+<script>
+function addToCart(id) {
+  const section = document.getElementById(id);
+  const stockSpan = section.querySelector('.stock');
+  let stock = parseInt(stockSpan.textContent);
+
+  if (stock > 0) {
+    stock -= 1;
+    stockSpan.textContent = stock;
+    alert("已加入購物車！");
+    
+    if (stock === 0) {
+      const button = section.querySelector('button');
+      button.textContent = "已售完";
+      button.disabled = true;
+    }
+  }
+}
+</script>
 
 <!-- sakura花瓣 -->
 <script>
