@@ -82,11 +82,46 @@ footer {
   color: #c1a7a5;
   padding: 40px 20px 20px;
 }
+.dust {
+  position: fixed;
+  top: -5px;
+  width: 2px;
+  height: 2px;
+  background: #e8d5b5;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: dustMove linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+@keyframes dustMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(30vw, 110vh) scale(0.5);
+    opacity: 0;
+  }
+}
 
   </style>
 </head>
 
 <body>
+<script>
+  for (let i = 0; i < 20; i++) {
+    let dust = document.createElement('div');
+    dust.className = 'dust';
+    dust.style.left = Math.random() * 100 + 'vw';
+    dust.style.width = (2 + Math.random() * 2) + 'px';
+    dust.style.height = (2 + Math.random() * 2) + 'px';
+    dust.style.background = Math.random() > 0.5 ? '#e8d5b5' : '#d8c5a5';
+    dust.style.animationDuration = (10 + Math.random() * 10) + 's';
+    dust.style.animationDelay = Math.random() * 5 + 's';
+    document.body.appendChild(dust);
+  }
+</script>
 
 <header>
   <h1>沙姆沙馬・公仔收藏系列</h1>
