@@ -4,21 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>春綺樓・公仔收藏系列</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  
+  <!-- Swiper 套件用來做圖片滑動 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  
   <style>
     body {
       margin: 0;
+      padding: 0;
+      background: #fdfaf7;
       font-family: 'Poppins', sans-serif;
-      background-color: #fdfaf7;
       color: #5b4b47;
       overflow-x: hidden;
+      position: relative;
     }
     header {
       text-align: center;
-      padding: 50px 20px 20px;
+      padding: 60px 20px 20px;
     }
     header h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
       margin-bottom: 10px;
     }
     header p {
@@ -27,11 +32,13 @@
     }
     .character-section {
       max-width: 800px;
-      margin: 50px auto;
+      margin: 60px auto;
       padding: 20px;
       background: #fff9f7;
       border-radius: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
     }
     .character-header {
       text-align: center;
@@ -42,74 +49,183 @@
       margin: 0;
     }
     .character-header h3 {
-      font-size: 1.2em;
+      font-size: 1.1em;
       color: #b07b78;
-      margin: 5px 0;
+      margin: 8px 0;
     }
     .swiper {
       width: 100%;
-      height: 300px;
+      height: 320px;
       margin-bottom: 20px;
+      border-radius: 15px;
+      overflow: hidden;
     }
     .swiper-slide img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      border-radius: 10px;
     }
     .character-info {
       font-size: 1em;
-      line-height: 1.6em;
-      padding: 0 10px;
+      line-height: 1.8em;
+      padding: 0 15px;
     }
     .quote {
-      margin-top: 15px;
+      margin-top: 20px;
       font-style: italic;
       text-align: center;
       color: #b07b78;
     }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #c1a7a5;
+      padding: 40px 20px 20px;
+    }
+    /* 櫻花動畫 */
+    .sakura {
+      position: fixed;
+      top: -10px;
+      width: 15px;
+      height: 15px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Cherry_blossom_icon.svg/120px-Cherry_blossom_icon.svg.png') no-repeat center/contain;
+      animation: fall linear infinite;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>春綺樓・公仔收藏系列</h1>
-    <p>艷麗與禁忌交織的故事</p>
-  </header>
 
-  <!-- 黎禮 -->
-  <section class="character-section">
-    <div class="character-header">
-      <h2>黎禮｜Li Li</h2>
-      <h3>冷月之下，靜守一場無聲的相遇。</h3>
-    </div>
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="your-image1.jpg" alt="黎禮圖1"></div>
-        <div class="swiper-slide"><img src="your-image2.jpg" alt="黎禮圖2"></div>
-        <div class="swiper-slide"><img src="your-image3.jpg" alt="黎禮圖3"></div>
-      </div>
-    </div>
-    <div class="character-info">
-      ✦ 身高：183cm<br>
-      ✦ 生日：10月12日<br>
-      ✦ 喜好：刀劍、月夜<br>
-      ✦ 特技：刀術、談判
-      <div class="quote">"In the stillness of the moon, he awaits only you."</div>
-    </div>
-  </section>
+<header>
+  <h1>春綺樓・公仔收藏系列</h1>
+  <p>艷麗與禁忌交織的故事</p>
+</header>
 
-  <!-- 更多角色區塊可以複製上面的結構 -->
+<!-- 角色區塊們 -->
+<!-- ------- 黎禮 ------- -->
+<section class="character-section">
+  <div class="character-header">
+    <h2>黎禮｜Li Li</h2>
+    <h3>冷月之下，靜守一場無聲的相遇。</h3>
+  </div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="your-image1.jpg" alt="黎禮公仔1"></div>
+      <div class="swiper-slide"><img src="your-image2.jpg" alt="黎禮公仔2"></div>
+      <div class="swiper-slide"><img src="your-image3.jpg" alt="黎禮公仔3"></div>
+    </div>
+  </div>
+  <div class="character-info">
+    ✦ 身高：183cm<br>
+    ✦ 生日：10月12日<br>
+    ✦ 喜好：刀劍、月夜<br>
+    ✦ 特技：刀術、談判
+    <div class="quote">"In the stillness of the moon, he awaits only you."</div>
+  </div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script>
-    const swipers = document.querySelectorAll('.swiper');
-    swipers.forEach(function(swiperEl) {
-      new Swiper(swiperEl, {
-        loop: true,
-        pagination: { el: '.swiper-pagination', clickable: true },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-      });
+<!-- ------- 狼蛛 ------- -->
+<section class="character-section">
+  <div class="character-header">
+    <h2>狼蛛｜Aranea</h2>
+    <h3>黑夜的蛛絲，織出致命的溫柔。</h3>
+  </div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="your-image4.jpg" alt="狼蛛公仔1"></div>
+      <div class="swiper-slide"><img src="your-image5.jpg" alt="狼蛛公仔2"></div>
+      <div class="swiper-slide"><img src="your-image6.jpg" alt="狼蛛公仔3"></div>
+    </div>
+  </div>
+  <div class="character-info">
+    ✦ 身高：178cm<br>
+    ✦ 生日：8月8日<br>
+    ✦ 喜好：纏綿遊戲、蛛絲工藝<br>
+    ✦ 特技：誘惑、陷阱設計
+    <div class="quote">"A silken thread, a heart ensnared."</div>
+  </div>
+</section>
+
+<!-- ------- 修（Hugh） ------- -->
+<section class="character-section">
+  <div class="character-header">
+    <h2>修｜Hugh</h2>
+    <h3>寂靜與溫柔，潛藏在指尖的重量。</h3>
+  </div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="your-image7.jpg" alt="修公仔1"></div>
+      <div class="swiper-slide"><img src="your-image8.jpg" alt="修公仔2"></div>
+      <div class="swiper-slide"><img src="your-image9.jpg" alt="修公仔3"></div>
+    </div>
+  </div>
+  <div class="character-info">
+    ✦ 身高：189cm<br>
+    ✦ 生日：3月11日<br>
+    ✦ 喜好：巧克力、紅茶<br>
+    ✦ 特技：經營、馴服人心
+    <div class="quote">"A silent promise, lingering in the warmth of his touch."</div>
+  </div>
+</section>
+
+<!-- ------- 雙子（Twins） ------- -->
+<section class="character-section">
+  <div class="character-header">
+    <h2>雙子｜Twins（瀓硩 & 澂烲）</h2>
+    <h3>一念溫柔，一念焚燒，皆在同一顆心上。</h3>
+  </div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="your-image10.jpg" alt="雙子公仔1"></div>
+      <div class="swiper-slide"><img src="your-image11.jpg" alt="雙子公仔2"></div>
+      <div class="swiper-slide"><img src="your-image12.jpg" alt="雙子公仔3"></div>
+    </div>
+  </div>
+  <div class="character-info">
+    ✦ 身高：178cm<br>
+    ✦ 生日：5月5日<br>
+    ✦ 喜好：瀓硩｜讀書、工藝 ／ 澂烲｜打鬥、烈酒<br>
+    ✦ 特技：角色交換、心靈感應
+    <div class="quote">"Two hearts entwined, choosing which half will devour you first."</div>
+  </div>
+</section>
+
+<!-- 頁尾感謝 -->
+<footer>
+  感謝你走進春綺樓的世界 🌸
+</footer>
+
+<!-- sakura花瓣 -->
+<script>
+  for (let i = 0; i < 15; i++) {
+    let sakura = document.createElement('div');
+    sakura.className = 'sakura';
+    sakura.style.left = Math.random() * 100 + 'vw';
+    sakura.style.animationDuration = 5 + Math.random() * 5 + 's';
+    sakura.style.opacity = Math.random();
+    document.body.appendChild(sakura);
+  }
+</script>
+
+<!-- Swiper 滑動功能 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swipers = document.querySelectorAll('.swiper');
+  swipers.forEach(function(swiperEl) {
+    new Swiper(swiperEl, {
+      loop: true,
+      autoplay: { delay: 3000 },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
