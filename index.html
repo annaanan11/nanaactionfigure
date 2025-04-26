@@ -83,35 +83,23 @@
       padding: 40px 20px 20px;
     }
     /* 櫻花動畫 */
-    .sakura {
-      position: fixed;
-      top: -10px;
-      width: 15px;
-      height: 15px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Cherry_blossom_icon.svg/120px-Cherry_blossom_icon.svg.png') no-repeat center/contain;
-      animation: fall linear infinite;
-      opacity: 0.8;
-      pointer-events: none;
-    }
-    @keyframes fall {
-      0% { transform: translateY(-10px) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(360deg); }
-    }
-  </style>
-</head>
+.sakura {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall linear infinite;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 9999;
+}
+.sakura::after {
+  content: '🌸'; /* 重點在這裡！直接插入emoji */
+}
+@keyframes fall {
+  0% { transform: translateY(-10px) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
 
-<body>
-<script>
-  // 產生15個櫻花元素
-  for (let i = 0; i < 15; i++) {
-    let sakura = document.createElement('div');
-    sakura.className = 'sakura';
-    sakura.style.left = Math.random() * 100 + 'vw';
-    sakura.style.animationDuration = (5 + Math.random() * 5) + 's';
-    sakura.style.opacity = 0.5 + Math.random() * 0.5;
-    document.body.appendChild(sakura);
-  }
-</script>
 
 <header>
   <h1>春綺樓・公仔收藏系列</h1>
