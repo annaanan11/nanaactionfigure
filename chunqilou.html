@@ -2,110 +2,51 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>春綺樓・公仔收藏系列</title>
-
-  <!-- Swiper 套件 -->
+  
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #fdfaf7;
-      font-family: 'Poppins', sans-serif;
-      color: #5b4b47;
-      overflow-x: hidden;
-      position: relative;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px 20px;
-    }
-    header h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2em;
-      color: #a88c8a;
-    }
-    .character-section {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 20px;
-      background: #fff9f7;
-      border-radius: 20px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-      position: relative;
-      overflow: hidden;
-    }
-    .character-header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .character-header h2 {
-      font-size: 2em;
-      margin: 0;
-    }
-    .character-header h3 {
-      font-size: 1.1em;
-      color: #b07b78;
-      margin: 8px 0;
-    }
-    .swiper {
-      width: 100%;
-      height: 320px;
-      margin-bottom: 20px;
-      border-radius: 15px;
-      overflow: hidden;
-    }
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    .character-info {
-      font-size: 1em;
-      line-height: 1.8em;
-      padding: 0 15px;
-    }
-    .quote {
-      margin-top: 20px;
-      font-style: italic;
-      text-align: center;
-      color: #b07b78;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #c1a7a5;
-      padding: 40px 20px 20px;
-    }
-
-    /* 🌸 升級版櫻花動畫 */
-.sakura {
-  position: fixed;
-  top: -10px;
-  font-size: 16px;
-  animation: fall linear infinite, sway ease-in-out infinite;
-  opacity: 0.7;
-  pointer-events: none;
-  z-index: 9999;
-}
-.sakura::after {
-  content: '🌸';
-}
-@keyframes fall {
-  0% { transform: translateY(-10px) rotate(0deg); }
-  100% { transform: translateY(110vh) rotate(360deg); }
-}
-@keyframes sway {
-  0%, 100% { transform: translateX(0px); }
-  50% { transform: translateX(20px); }
-}
-</style>
+    /* 你的CSS（body, header, section, sakura等等） */
+  </style>
 </head>
+
+<body>
+
+<header>
+  <!-- 大標題、介紹文字 -->
+</header>
+
+<section class="character-section">
+  <!-- 角色展示卡 -->
+</section>
+
+<section class="character-section">
+  <!-- 更多角色展示 -->
+</section>
+
+<footer>
+  <!-- 感謝區 -->
+</footer>
+
+<!-- 必須放在body後面！這裡才放JS -->
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swipers = document.querySelectorAll('.swiper');
+  swipers.forEach(function(swiperEl) {
+    new Swiper(swiperEl, {
+      loop: true,
+      autoplay: { delay: 3000 },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+    });
+  });
+</script>
+
+<!-- 🌸升級版櫻花動畫JS -->
 <script>
 window.onload = function() {
   for (let i = 0; i < 20; i++) {
@@ -121,24 +62,5 @@ window.onload = function() {
 };
 </script>
 
-<body>
-
-<header>
-  <h1>春綺樓・公仔收藏系列</h1>
-  <p>艷麗與禁忌交織的故事</p>
-</header>
-
-<!-- ------- 黎禮 ------- -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>黎禮｜Li Li</h2>
-    <h3>冷月之下，靜守一場無聲的相遇。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="1.1.png" alt="黎禮公仔1"></div>
-      <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
-      <div class="swiper-slide"><img src="your-image3.jpg" alt="黎禮公仔3"></div>
-    </div>
-  </div>
-  <div class="character-info">
+</body>
+</html>
