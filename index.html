@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>春綺樓・公仔收藏系列</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfaf7;
+      color: #5b4b47;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #a88c8a;
+    }
+    .character-section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff9f7;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .character-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .character-header h2 {
+      font-size: 2em;
+      margin: 0;
+    }
+    .character-header h3 {
+      font-size: 1.2em;
+      color: #b07b78;
+      margin: 5px 0;
+    }
+    .swiper {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 20px;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .character-info {
+      font-size: 1em;
+      line-height: 1.6em;
+      padding: 0 10px;
+    }
+    .quote {
+      margin-top: 15px;
+      font-style: italic;
+      text-align: center;
+      color: #b07b78;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>春綺樓・公仔收藏系列</h1>
+    <p>艷麗與禁忌交織的故事</p>
+  </header>
+
+  <!-- 黎禮 -->
+  <section class="character-section">
+    <div class="character-header">
+      <h2>黎禮｜Li Li</h2>
+      <h3>冷月之下，靜守一場無聲的相遇。</h3>
+    </div>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="your-image1.jpg" alt="黎禮圖1"></div>
+        <div class="swiper-slide"><img src="your-image2.jpg" alt="黎禮圖2"></div>
+        <div class="swiper-slide"><img src="your-image3.jpg" alt="黎禮圖3"></div>
+      </div>
+    </div>
+    <div class="character-info">
+      ✦ 身高：183cm<br>
+      ✦ 生日：10月12日<br>
+      ✦ 喜好：刀劍、月夜<br>
+      ✦ 特技：刀術、談判
+      <div class="quote">"In the stillness of the moon, he awaits only you."</div>
+    </div>
+  </section>
+
+  <!-- 更多角色區塊可以複製上面的結構 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    const swipers = document.querySelectorAll('.swiper');
+    swipers.forEach(function(swiperEl) {
+      new Swiper(swiperEl, {
+        loop: true,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+      });
+    });
+  </script>
+</body>
+</html>
