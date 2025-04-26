@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>春綺樓・公仔收藏系列</title>
-  
-  <!-- Swiper 套件用來做圖片滑動 -->
+
+  <!-- Swiper 套件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  
+
   <style>
     body {
       margin: 0;
@@ -82,67 +82,38 @@
       color: #c1a7a5;
       padding: 40px 20px 20px;
     }
-    /* 櫻花動畫 */
-<style>
-  .sakura {
-    position: fixed;
-    top: -10px;
-    font-size: 20px;
-    animation: fall linear infinite;
-    opacity: 0.8;
-    pointer-events: none;
-    z-index: 9999;
-  }
-  .sakura::after {
-    content: '🌸';
-  }
-  @keyframes fall {
-    0% { transform: translateY(-10px) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(360deg); }
-  }
-  .sakura {
-  position: fixed;
-  top: -10px;
-  font-size: 16px;
-  animation: fall linear infinite, sway ease-in-out infinite;
-  opacity: 0.7;
-  pointer-events: none;
-  z-index: 9999;
-}
-.sakura::after {
-  content: '🌸';
-}
-@keyframes fall {
-  0% { transform: translateY(-10px) rotate(0deg); }
-  100% { transform: translateY(110vh) rotate(360deg); }
-}
-@keyframes sway {
-  0%, 100% { transform: translateX(0px); }
-  50% { transform: translateX(20px); }
-}
 
-</style>
-
-<script>
-  for (let i = 0; i < 15; i++) {
-    let sakura = document.createElement('div');
-    sakura.className = 'sakura';
-    sakura.style.left = Math.random() * 100 + 'vw';
-    sakura.style.animationDuration = (5 + Math.random() * 5) + 's';
-    sakura.style.opacity = 0.5 + Math.random() * 0.5;
-    document.body.appendChild(sakura);
-  }
-</script>
-
+    /* 🌸 升級版櫻花動畫 */
+    .sakura {
+      position: fixed;
+      top: -10px;
+      font-size: 16px;
+      animation: fall linear infinite, sway ease-in-out infinite;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    .sakura::after {
+      content: '🌸';
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+    @keyframes sway {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(20px); }
+    }
+  </style>
 </head>
 
 <body>
+
 <header>
   <h1>春綺樓・公仔收藏系列</h1>
   <p>艷麗與禁忌交織的故事</p>
 </header>
 
-<!-- 角色區塊們 -->
 <!-- ------- 黎禮 ------- -->
 <section class="character-section">
   <div class="character-header">
@@ -157,110 +128,3 @@
     </div>
   </div>
   <div class="character-info">
-    ✦ 身高：192cm<br>
-    ✦ 生日：8月8日<br>
-    ✦ 溫柔、可愛<br>
-    ✦ 你的狗狗
-    <div class="quote">"In the stillness of the moon, he awaits only you."</div>
-  </div>
-</section>
-
-<!-- ------- 修（Hugh） ------- -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>修｜Hugh</h2>
-    <h3>愛與責任的拉扯。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="4.1.png" alt="修公仔1"></div>
-      <div class="swiper-slide"><img src="your-image5.jpg" alt="修公仔2"></div>
-      <div class="swiper-slide"><img src="your-image6.jpg" alt="修公仔3"></div>
-    </div>
-  </div>
-  <div class="character-info">
-    ✦ 身高：190cm<br>
-    ✦ 生日：7月21日<br>
-    ✦ 巧克力香<br>
-    ✦ 你的daddy
-    <div class="quote">"A silken thread, a heart ensnared."</div>
-  </div>
-</section>
-
-<!-- -------瀓硩 ------- -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>瀓硩</h2>
-    <h3>掉入他的優雅之中。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="your-image7.jpg" alt="修公仔1"></div>
-      <div class="swiper-slide"><img src="your-image8.jpg" alt="修公仔2"></div>
-      <div class="swiper-slide"><img src="your-image9.jpg" alt="修公仔3"></div>
-    </div>
-  </div>
-  <div class="character-info">
-    ✦ 身高：189cm<br>
-    ✦ 生日：3月11日<br>
-    ✦ 白茶香<br>
-    ✦ 溫柔陷阱
-    <div class="quote">"A silent promise, lingering in the warmth of his touch."</div>
-  </div>
-</section>
-
-<!-- ------- 澂烲 ------- -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>澂烲</h2>
-    <h3>瘋狗。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="your-image10.jpg" alt="雙子公仔1"></div>
-      <div class="swiper-slide"><img src="your-image11.jpg" alt="雙子公仔2"></div>
-      <div class="swiper-slide"><img src="your-image12.jpg" alt="雙子公仔3"></div>
-    </div>
-  </div>
-  <div class="character-info">
-    ✦ 身高：189cm<br>
-    ✦ 生日：3月11日<br>
-    ✦ 威士忌香<br>
-    ✦ 瘋狗
-    <div class="quote">"Two hearts entwined, choosing which half will devour you first."</div>
-  </div>
-</section>
-
-<!-- 頁尾感謝 -->
-<footer>
-  感謝你走進春綺樓的世界 🌸
-</footer>
-
-<!-- sakura花瓣 -->
-<script>
-  for (let i = 0; i < 15; i++) {
-    let sakura = document.createElement('div');
-    sakura.className = 'sakura';
-    sakura.style.left = Math.random() * 100 + 'vw';
-    sakura.style.animationDuration = 5 + Math.random() * 5 + 's';
-    sakura.style.opacity = Math.random();
-    document.body.appendChild(sakura);
-  }
-</script>
-
-<!-- Swiper 滑動功能 -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script>
-  const swipers = document.querySelectorAll('.swiper');
-  swipers.forEach(function(swiperEl) {
-    new Swiper(swiperEl, {
-      loop: true,
-      autoplay: { delay: 3000 },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-    });
-  });
-</script>
-
-</body>
-</html>
