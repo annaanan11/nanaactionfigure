@@ -101,6 +101,17 @@
 </head>
 
 <body>
+<script>
+  // 產生15個櫻花元素
+  for (let i = 0; i < 15; i++) {
+    let sakura = document.createElement('div');
+    sakura.className = 'sakura';
+    sakura.style.left = Math.random() * 100 + 'vw';
+    sakura.style.animationDuration = (5 + Math.random() * 5) + 's';
+    sakura.style.opacity = 0.5 + Math.random() * 0.5;
+    document.body.appendChild(sakura);
+  }
+</script>
 
 <header>
   <h1>春綺樓・公仔收藏系列</h1>
