@@ -155,6 +155,31 @@
       0%, 100% { transform: translateX(0px); }
       50% { transform: translateX(20px); }
     }
+
+    .back-to-home {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #b07b78;
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 10000;
+}
+.back-to-home:hover {
+  background: #a88c8a;
+  transform: scale(1.1);
+}
+</style>
+
   </style>
 </head>
 
@@ -334,6 +359,6 @@ for (let i = 0; i < 30; i++) {
   document.body.appendChild(sakura);
 }
 </script>
-
+<a href="index.html" class="back-to-home" title="回首頁">🏠</a>
 </body>
 </html>
