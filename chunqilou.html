@@ -137,22 +137,23 @@
       color: #c1a7a5;
       padding: 40px 20px 20px;
     }
-    /* 沙塵粒子 */
-    .dust {
+    /* 櫻花CSS */
+    .sakura {
       position: fixed;
-      top: -5px;
-      width: 5px;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: dustMove linear infinite;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite, sway ease-in-out infinite;
+      opacity: 0.6;
       pointer-events: none;
-      z-index: 1;
+      z-index: 9999;
     }
-    @keyframes dustMove {
-      0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-      100% { transform: translate(40vw, 110vh) scale(0.5); opacity: 0; }
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+    @keyframes sway {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(20px); }
     }
   </style>
 </head>
@@ -160,13 +161,12 @@
 <body>
 
 <header>
-  <h1>春綺樓・公仔收藏系列</h1>
+  <h1>春綺樓</h1>
   <p>艷麗與禁忌交織的故事</p>
 </header>
 
 <section class="character-section">
-
-  <!-- 🔥黎禮區塊示範🔥 -->
+    <!-- 🔥黎禮｜Li Li 區塊🔥 -->
   <div class="character-block">
     <h2 class="character-title">黎禮｜Li Li</h2>
 
@@ -205,105 +205,109 @@
       <span class="stock-info">庫存：5件</span>
       <button onclick="addToCart('lili')">加入購物車</button>
     </div>
+  </div>
 
-      <!-- 🔥修區塊🔥 -->
+    <!-- 🔥修｜Hugh 區塊🔥 -->
   <div class="character-block">
-    <h2 class="character-title">黎禮｜Li Li</h2>
+    <h2 class="character-title">修｜Hugh</h2>
 
     <div class="top-wrapper">
       <div class="character-left">
-        <img src="li.png" alt="黎禮角色原畫">
+        <img src="hugh.png" alt="修角色原畫">
       </div>
       <div class="character-right">
-        <p>他在冷月之下靜靜守望，<br>
-        那場未曾開口的相遇，<br>
-        留在了誰的心裡。</p>
+        <p>若能擁抱你一次，<br>
+        他甘願背負無盡沉默，<br>
+        將所有無法說出口的愛，藏進掌心。</p>
       </div>
     </div>
 
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="1.1.png" alt="黎禮公仔1"></div>
-        <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
-        <div class="swiper-slide"><img src="3.1.png" alt="黎禮公仔3"></div>
+        <div class="swiper-slide"><img src="4.1.png" alt="修公仔1"></div>
+        <div class="swiper-slide"><img src="5.1.png" alt="修公仔2"></div>
+        <div class="swiper-slide"><img src="6.1.png" alt="修公仔3"></div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
 
     <div class="product-description">
-      <strong>款式A｜微笑版</strong><br>他難得的柔和神情，輕輕彎起嘴角。<br><br>
-      <strong>款式B｜戰鬥版</strong><br>血跡未乾，仍然挺立的身影。<br><br>
-      <strong>款式C｜受傷版</strong><br>帶著未縫合的傷痕，卻依然堅定。
+      <strong>款式A｜沉思版</strong><br>低頭沉默，眼底藏著千言萬語。<br><br>
+      <strong>款式B｜溫柔版</strong><br>摘下眼鏡，露出難得的笑意。<br><br>
+      <strong>款式C｜傷痛版</strong><br>濕潤雙眼，卻依然握緊你的手。
     </div>
 
-    <div class="buy-section" id="lili">
-      <select id="lili-select">
+    <div class="buy-section" id="hugh">
+      <select id="hugh-select">
         <option value="款式A">款式A</option>
         <option value="款式B">款式B</option>
         <option value="款式C">款式C</option>
       </select>
       <span class="stock-info">庫存：5件</span>
-      <button onclick="addToCart('lili')">加入購物車</button>
+      <button onclick="addToCart('hugh')">加入購物車</button>
     </div>
+  </div>
 
-      <!-- 🔥雙子區塊🔥 -->
+    <!-- 🔥雙子｜Twin 區塊🔥 -->
   <div class="character-block">
-    <h2 class="character-title">黎禮｜Li Li</h2>
+    <h2 class="character-title">瀓硩・澂烲｜Twin</h2>
 
     <div class="top-wrapper">
       <div class="character-left">
-        <img src="li.png" alt="黎禮角色原畫">
+        <img src="twin.png" alt="雙子角色原畫">
       </div>
       <div class="character-right">
-        <p>他在冷月之下靜靜守望，<br>
-        那場未曾開口的相遇，<br>
-        留在了誰的心裡。</p>
+        <p>他是溫柔而無聲的春日，<br>
+        即便心碎，也仍然溫暖地擁抱著你。<br><br>
+        他不懂溫柔，<br>
+        只能用尖銳的愛，將你拉進懷裡，霸道又絕望。</p>
       </div>
     </div>
 
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="1.1.png" alt="黎禮公仔1"></div>
-        <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
-        <div class="swiper-slide"><img src="3.1.png" alt="黎禮公仔3"></div>
+        <div class="swiper-slide"><img src="7.1.png" alt="雙子公仔1"></div>
+        <div class="swiper-slide"><img src="8.1.png" alt="雙子公仔2"></div>
+        <div class="swiper-slide"><img src="9.1.png" alt="雙子公仔3"></div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
 
     <div class="product-description">
-      <strong>款式A｜微笑版</strong><br>他難得的柔和神情，輕輕彎起嘴角。<br><br>
-      <strong>款式B｜戰鬥版</strong><br>血跡未乾，仍然挺立的身影。<br><br>
-      <strong>款式C｜受傷版</strong><br>帶著未縫合的傷痕，卻依然堅定。
+      <strong>款式A｜微笑版</strong><br>淺淺一笑，柔光從他指尖流轉。<br><br>
+      <strong>款式B｜守護版</strong><br>靜靜立在身旁，只為守候你的世界。<br><br>
+      <strong>款式C｜悲傷版</strong><br>眼角微紅，仍舊輕輕為你拂去塵埃。
     </div>
 
-    <div class="buy-section" id="lili">
-      <select id="lili-select">
+    <div class="buy-section" id="twin">
+      <select id="twin-select">
         <option value="款式A">款式A</option>
         <option value="款式B">款式B</option>
         <option value="款式C">款式C</option>
       </select>
       <span class="stock-info">庫存：5件</span>
-      <button onclick="addToCart('lili')">加入購物車</button>
+      <button onclick="addToCart('twin')">加入購物車</button>
     </div>
+  </div>
 
+  </section>
 
-  </div> <!-- End of character-block -->
-
-</section>
-  
 <!-- footer感謝 -->
 <footer>
   一晌春綺 🌸
 </footer>
 
-<!-- Swiper滑動 -->
+<!-- Swiper 滑動功能 -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
   document.querySelectorAll('.swiper').forEach(swiperEl => {
     new Swiper(swiperEl, {
       loop: true,
       autoplay: { delay: 3000 },
-      pagination: { el: swiperEl.querySelector('.swiper-pagination'), clickable: true }
+      pagination: {
+        el: swiperEl.querySelector('.swiper-pagination'),
+        clickable: true
+      }
     });
   });
 </script>
@@ -317,7 +321,7 @@ function addToCart(id) {
 }
 </script>
 
-<!-- 櫻花飄落 -->
+<!-- 櫻花飄落特效 -->
 <script>
 for (let i = 0; i < 30; i++) {
   let sakura = document.createElement('div');
