@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>繡骨台・公仔收藏系列</title>
 
-  <!-- Swiper 套件 -->
+  <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #1f2a24; /* 深綠灰色 */
+      background: #111111; /* 深黑背景 */
       font-family: 'Poppins', sans-serif;
-      color: #eee9e0; /* 柔米色 */
+      color: #d8d0c5; /* 舊米白字體 */
       overflow-x: hidden;
       position: relative;
     }
@@ -23,105 +23,139 @@
       padding: 60px 20px 20px;
     }
     header h1 {
-      font-size: 2.6em;
+      font-size: 2.8em;
       margin-bottom: 10px;
     }
     header p {
       font-size: 1.2em;
-      color: #c8b887; /* 金棕色副標 */
+      color: #a89c88;
     }
     .character-section {
-      max-width: 800px;
+      max-width: 1100px;
       margin: 60px auto;
       padding: 20px;
-      background: #f5f1e5; /* 霧金色卡片 */
+    }
+    .character-block {
+      background: rgba(30,30,30,0.6); /* 深灰半透明 */
+      border: 1px solid #3a3a3a;
       border-radius: 20px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      padding: 30px 20px;
+      margin-bottom: 60px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       position: relative;
-      overflow: hidden;
-      color: #4a4038; /* 卡片內字色較深 */
+      z-index: 10;
     }
-    .character-header {
+    .character-title {
       text-align: center;
-      margin-bottom: 20px;
-    }
-    .character-header h2 {
       font-size: 2em;
-      margin: 0;
+      margin-bottom: 20px;
+      color: #eaeaea;
+      font-weight: 600;
     }
-    .character-header h3 {
-      font-size: 1em;
-      color: #7a6f67;
-      margin: 8px 0;
-      font-style: italic;
+    .top-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .character-left, .character-right {
+      flex: 1 1 45%;
+      min-width: 200px;
+      text-align: center;
+    }
+    .character-left img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+      object-fit: cover;
+    }
+    .character-right p {
+      font-size: 1.1em;
+      padding: 10px;
+      line-height: 1.8em;
+      color: #d8d0c5;
     }
     .swiper {
       width: 100%;
-      height: 320px;
       margin-bottom: 20px;
-      border-radius: 15px;
-      overflow: hidden;
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .swiper-slide img {
-      width: 100%;
-      height: 100%;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
       object-fit: contain;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.05);
     }
-    .character-info {
+    .product-description {
+      margin-bottom: 20px;
       font-size: 1em;
-      line-height: 1.8em;
-      padding: 0 15px;
-    }
-    .quote {
-      margin-top: 20px;
-      font-style: italic;
+      line-height: 1.6em;
       text-align: center;
-      color: #7a6f67;
     }
     .buy-section {
-      text-align: center;
-      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .buy-section select {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: 1px solid #6e5b43;
+      background: transparent;
+      color: #d8d0c5;
+      font-size: 1em;
     }
     .buy-section button {
-      padding: 8px 20px;
-      font-size: 1em;
-      background-color: #6b7c5e; /* 深金綠按鈕 */
-      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
       border: none;
-      border-radius: 20px;
+      background: #6e5b43;
+      color: #fff;
+      font-size: 1em;
       cursor: pointer;
       transition: background-color 0.3s;
     }
     .buy-section button:hover {
-      background-color: #a79d70; /* 暗金hover */
+      background: #917856;
     }
-    .buy-section button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
+    .stock-info {
+      font-size: 1em;
+      color: #a89c88;
     }
     footer {
       text-align: center;
       font-size: 0.9em;
-      color: #a49a91;
+      color: #7c736a;
       padding: 40px 20px 20px;
     }
-
     /* 微光塵埃粒子 */
     .dust {
       position: fixed;
       top: -5px;
-      width: 3px;
-      height: 3px;
-      background: rgba(255, 255, 255, 0.3);
+      width: 5px;
+      height: 5px;
+      background: rgba(255,255,255,0.3);
       border-radius: 50%;
-      opacity: 0.7;
+      opacity: 0.3;
       animation: dustMove linear infinite;
       pointer-events: none;
       z-index: 1;
     }
     @keyframes dustMove {
-      0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-      100% { transform: translate(30vw, 110vh) scale(0.5); opacity: 0; }
+      0% { transform: translate(0,0) scale(1); opacity: 0.3; }
+      100% { transform: translate(30vw, 120vh) scale(0.5); opacity: 0; }
     }
   </style>
 </head>
@@ -129,136 +163,186 @@
 <body>
 
 <header>
-  <h1>繡骨台・公仔收藏系列</h1>
+  <h1>繡骨台</h1>
   <p>舊夢未歇，戲魂未央</p>
 </header>
 
-<!-- 角色區塊們 -->
-
-<!-- 佐左 -->
 <section class="character-section">
-  <div class="character-header">
-    <h2>佐左｜Sakuza</h2>
-    <h3>戰場野犬，命定的孤魂。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="sakuza-1.jpg" alt="佐左公仔1"></div>
-      <div class="swiper-slide"><img src="sakuza-2.jpg" alt="佐左公仔2"></div>
-      <div class="swiper-slide"><img src="sakuza-3.jpg" alt="佐左公仔3"></div>
+  <!-- 🔥平蘋｜Pingpin 區塊🔥 -->
+<div class="character-block">
+  <h2 class="character-title">平蘋｜Pingpin</h2>
+
+  <div class="top-wrapper">
+    <div class="character-left">
+      <img src="pingpin.png" alt="平蘋角色原畫">
+    </div>
+    <div class="character-right">
+      <p>舊戲台塌陷時，<br>
+      他仍撐著殘破的花翎，<br>
+      唱那首無人問津的曲。<br>
+      花已謝，骨已碎，<br>
+      唯有執念不肯散場。</p>
     </div>
   </div>
-  <div class="character-info">
-    ✦ 身高：196cm<br>
-    ✦ 氣味：白麝香<br>
-    ✦ 來自戰火與孤獨
-    <div class="quote">"No battlefield shall forget his name."</div>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="pingpin-1.png" alt="平蘋公仔1"></div>
+      <div class="swiper-slide"><img src="pingpin-2.png" alt="平蘋公仔2"></div>
+      <div class="swiper-slide"><img src="pingpin-3.png" alt="平蘋公仔3"></div>
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
+
+  <div class="product-description">
+    <strong>款式A｜盛裝版</strong><br>滿身繁華，仿佛從未敗落。<br><br>
+    <strong>款式B｜殘花版</strong><br>衣角染血，唇角仍噙著舊笑。<br><br>
+    <strong>款式C｜白骨版</strong><br>白衣如霜，步步踏碎過往。
+  </div>
+
+  <div class="buy-section" id="pingpin">
+    <select id="pingpin-select">
+      <option value="款式A">款式A</option>
+      <option value="款式B">款式B</option>
+      <option value="款式C">款式C</option>
+    </select>
+    <span class="stock-info">庫存：5件</span>
+    <button onclick="addToCart('pingpin')">加入購物車</button>
+  </div>
+</div>
+  <!-- 🔥佐左｜Sakuza 區塊🔥 -->
+<div class="character-block">
+  <h2 class="character-title">佐左｜Sakuza</h2>
+
+  <div class="top-wrapper">
+    <div class="character-left">
+      <img src="sakuza.png" alt="佐左角色原畫">
+    </div>
+    <div class="character-right">
+      <p>在泥濘與鮮血中，<br>
+      他學會了沉默，學會了咬碎誓言，<br>
+      成為無聲咆哮的野犬。<br>
+      那場未歸的戰爭，<br>
+      在他心裡，從未結束。</p>
+    </div>
+  </div>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="sakuza-1.png" alt="佐左公仔1"></div>
+      <div class="swiper-slide"><img src="sakuza-2.png" alt="佐左公仔2"></div>
+      <div class="swiper-slide"><img src="sakuza-3.png" alt="佐左公仔3"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="product-description">
+    <strong>款式A｜戰犬版</strong><br>染泥的鎧甲，仍不屈膝。<br><br>
+    <strong>款式B｜哀傷版</strong><br>站在硝煙邊緣，無人呼喚。<br><br>
+    <strong>款式C｜孤魂版</strong><br>滿身風沙，獨行在無聲荒野。
+  </div>
+
   <div class="buy-section" id="sakuza">
-    <p>庫存：<span class="stock">3</span> 件</p>
+    <select id="sakuza-select">
+      <option value="款式A">款式A</option>
+      <option value="款式B">款式B</option>
+      <option value="款式C">款式C</option>
+    </select>
+    <span class="stock-info">庫存：5件</span>
     <button onclick="addToCart('sakuza')">加入購物車</button>
   </div>
-</section>
+</div>
+  <!-- 🔥佑祐｜Youyou 區塊🔥 -->
+<div class="character-block">
+  <h2 class="character-title">佑祐｜Youyou</h2>
 
-<!-- 平蘋 -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>平蘋｜Pingping</h2>
-    <h3>破碎花影裡唯一的執念。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="10.1.png" alt="平蘋公仔1"></div>
-      <div class="swiper-slide"><img src="pingping-2.jpg" alt="平蘋公仔2"></div>
-      <div class="swiper-slide"><img src="pingping-3.jpg" alt="平蘋公仔3"></div>
+  <div class="top-wrapper">
+    <div class="character-left">
+      <img src="youyou.png" alt="佑祐角色原畫">
+    </div>
+    <div class="character-right">
+      <p>他曾緊抱著一場溫暖的夢，<br>
+      直到夢滅，<br>
+      他成為留守空城的影子。<br>
+      笑容早已遺失，<br>
+      只剩頹圮的戲台，和無聲的等待。</p>
     </div>
   </div>
-  <div class="character-info">
-    ✦ 身高：188cm<br>
-    ✦ 氣味：蘋果香<br>
-    ✦ 以恨為名的柔情
-    <div class="quote">"Even broken dreams bloom once more."</div>
-  </div>
-  <div class="buy-section" id="pingping">
-    <p>庫存：<span class="stock">2</span> 件</p>
-    <button onclick="addToCart('pingping')">加入購物車</button>
-  </div>
-</section>
 
-<!-- 佑祐 -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>佑祐｜Youyou</h2>
-    <h3>從血與火中偷來的微笑。</h3>
-  </div>
   <div class="swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="youyou-1.jpg" alt="佑祐公仔1"></div>
-      <div class="swiper-slide"><img src="youyou-2.jpg" alt="佑祐公仔2"></div>
-      <div class="swiper-slide"><img src="youyou-3.jpg" alt="佑祐公仔3"></div>
+      <div class="swiper-slide"><img src="youyou-1.png" alt="佑祐公仔1"></div>
+      <div class="swiper-slide"><img src="youyou-2.png" alt="佑祐公仔2"></div>
+      <div class="swiper-slide"><img src="youyou-3.png" alt="佑祐公仔3"></div>
     </div>
+    <div class="swiper-pagination"></div>
   </div>
-  <div class="character-info">
-    ✦ 身高：190cm<br>
-    ✦ 氣味：蘭花香<br>
-    ✦ 是血色裡的柔光
-    <div class="quote">"A fragile smile stolen from fate."</div>
+
+  <div class="product-description">
+    <strong>款式A｜守候版</strong><br>抱著斷裂的信物，獨自守望。<br><br>
+    <strong>款式B｜微笑版</strong><br>藏著破碎心事，輕輕一笑。<br><br>
+    <strong>款式C｜離散版</strong><br>目送最後一縷光，消失於舊夢裡。
   </div>
+
   <div class="buy-section" id="youyou">
-    <p>庫存：<span class="stock">1</span> 件</p>
+    <select id="youyou-select">
+      <option value="款式A">款式A</option>
+      <option value="款式B">款式B</option>
+      <option value="款式C">款式C</option>
+    </select>
+    <span class="stock-info">庫存：5件</span>
     <button onclick="addToCart('youyou')">加入購物車</button>
   </div>
-</section>
+</div>
+  </section>
 
+<!-- footer感謝 -->
 <footer>
-  感謝你走進繡骨台 🎭
+  餘燼未冷，舊戲猶唱。🖤
 </footer>
 
-<!-- Swiper套件 -->
+<!-- Swiper 滑動功能 -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
-  const swipers = document.querySelectorAll('.swiper');
-  swipers.forEach(function(swiperEl) {
+  document.querySelectorAll('.swiper').forEach(swiperEl => {
     new Swiper(swiperEl, {
       loop: true,
       autoplay: { delay: 3000 },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+      pagination: {
+        el: swiperEl.querySelector('.swiper-pagination'),
+        clickable: true
+      }
     });
   });
 </script>
 
-<!-- 購物車功能 -->
+<!-- 加入購物車功能 -->
 <script>
 function addToCart(id) {
-  const section = document.getElementById(id);
-  const stockSpan = section.querySelector('.stock');
-  let stock = parseInt(stockSpan.textContent);
-
-  if (stock > 0) {
-    stock -= 1;
-    stockSpan.textContent = stock;
-    alert("已加入購物車！");
-    if (stock === 0) {
-      const button = section.querySelector('button');
-      button.textContent = "已售完";
-      button.disabled = true;
-    }
-  }
+  const select = document.getElementById(id + "-select");
+  const selectedOption = select.options[select.selectedIndex].text;
+  alert(`已將【${selectedOption}】加入購物車！`);
 }
 </script>
 
-<!-- 微光塵埃粒子 -->
+<!-- 微光塵埃粒子特效 -->
 <script>
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 50; i++) {
   let dust = document.createElement('div');
   dust.className = 'dust';
   dust.style.left = Math.random() * 100 + 'vw';
-  dust.style.animationDuration = (20 + Math.random() * 20) + 's';
-  dust.style.opacity = 0.2 + Math.random() * 0.5;
+  dust.style.width = (3 + Math.random() * 2) + 'px';
+  dust.style.height = (3 + Math.random() * 2) + 'px';
+  dust.style.animationDuration = (30 + Math.random() * 20) + 's';
+  dust.style.opacity = 0.2 + Math.random() * 0.3;
   document.body.appendChild(dust);
 }
 </script>
 
 </body>
 </html>
+
+
+
+
+  
