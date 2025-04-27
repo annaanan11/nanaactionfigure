@@ -12,7 +12,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: #fdfaf7; /* 粉 */
+      background: #fdfaf7;
       font-family: 'Poppins', sans-serif;
       color: #5b4b47;
       overflow-x: hidden;
@@ -34,9 +34,22 @@
       max-width: 1100px;
       margin: 60px auto;
       padding: 20px;
+      background: transparent;
+    }
+    .character-block {
+      background: rgba(255,255,255,0.4);
+      border: 1px solid #e0d7cf;
       border-radius: 20px;
-      box-shadow: none; /* 沒有白框陰影 */
-      background: transparent; /* 完全透明 */
+      padding: 30px 20px;
+      margin-bottom: 60px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    }
+    .character-title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #5b4b47;
+      font-weight: 600;
     }
     .top-wrapper, .bottom-wrapper {
       display: flex;
@@ -54,7 +67,7 @@
       text-align: center;
       background: transparent;
     }
-    .character-left img {
+    .character-left img, .swiper-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -72,20 +85,12 @@
       width: 100%;
       height: 100%;
     }
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
     .product-description {
       padding: 20px;
       text-align: left;
       color: #5b4b47;
       font-size: 1em;
       line-height: 1.8em;
-      background: transparent;
     }
     .buy-section {
       margin-top: 15px;
@@ -146,148 +151,158 @@
 <body>
 
 <header>
-  <h1>春綺樓</h1>
+  <h1>春綺樓・公仔收藏系列</h1>
   <p>艷麗與禁忌交織的故事</p>
 </header>
 
 <section class="character-section">
-  
-  <!-- 上半部：原畫＋小短文 -->
-  <div class="top-wrapper">
-    <div class="character-left">
-      <img src="li.png" alt="黎禮角色原畫">
-    </div>
-    <div class="character-right">
-      <p>他在冷月之下靜靜守望，  
-      那場未曾開口的相遇，  
-      留在了誰的心裡。</p>
-    </div>
-  </div>
 
-  <!-- 下半部：公仔滑動＋款式介紹 -->
-  <div class="bottom-wrapper" style="margin-top: 40px;">
-    <div class="character-left">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="1.1.png" alt="黎禮公仔1"></div>
-          <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
-          <div class="swiper-slide"><img src="3.1.png" alt="黎禮公仔3"></div>
+  <!-- 黎禮 Li Li -->
+  <div class="character-block">
+    <h2 class="character-title">黎禮｜Li Li</h2>
+
+    <div class="top-wrapper">
+      <div class="character-left">
+        <img src="li.png" alt="黎禮角色原畫">
+      </div>
+      <div class="character-right">
+        <p>他在冷月之下靜靜守望，  
+        那場未曾開口的相遇，  
+        留在了誰的心裡。</p>
+      </div>
+    </div>
+
+    <div class="bottom-wrapper" style="margin-top: 40px;">
+      <div class="character-left">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="1.1.png" alt="黎禮公仔1"></div>
+            <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
+            <div class="swiper-slide"><img src="3.1.png" alt="黎禮公仔3"></div>
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-        <div class="swiper-pagination"></div>
       </div>
-    </div>
 
-    <div class="character-right">
-      <div class="product-description">
-        <strong>款式A｜微笑版</strong><br>
-        他難得的柔和神情，輕輕彎起嘴角。<br><br>
-        <strong>款式B｜戰鬥版</strong><br>
-        血跡未乾，仍然挺立的身影。<br><br>
-        <strong>款式C｜受傷版</strong><br>
-        帶著未縫合的傷痕，卻依然堅定。
-      </div>
-      <div class="buy-section" id="lili">
-        <select id="lili-select">
-          <option value="款式A">款式A</option>
-          <option value="款式B">款式B</option>
-          <option value="款式C">款式C</option>
-        </select>
-        <button onclick="addToCart('lili')">加入購物車</button>
-      </div>
-    </div>
-  </div>
-<!-- 修 Hugh -->
-<section class="character-section">
-  <div class="top-wrapper">
-    <div class="character-left">
-      <img src="hugh.png" alt="修角色原畫">
-    </div>
-    <div class="character-right">
-      <p>若能擁抱你一次，  
-      他甘願背負無盡沉默，  
-      將所有無法說出口的愛，藏進掌心。</p>
-    </div>
-  </div>
-
-  <div class="bottom-wrapper" style="margin-top: 40px;">
-    <div class="character-left">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="4.1.png" alt="修公仔1"></div>
-          <div class="swiper-slide"><img src="5.1.png" alt="修公仔2"></div>
-          <div class="swiper-slide"><img src="6.1.png" alt="修公仔3"></div>
+      <div class="character-right">
+        <div class="product-description">
+          <strong>款式A｜微笑版</strong><br>
+          他難得的柔和神情，輕輕彎起嘴角。<br><br>
+          <strong>款式B｜戰鬥版</strong><br>
+          血跡未乾，仍然挺立的身影。<br><br>
+          <strong>款式C｜受傷版</strong><br>
+          帶著未縫合的傷痕，卻依然堅定。
         </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-
-    <div class="character-right">
-      <div class="product-description">
-        <strong>款式A｜沉思版</strong><br>
-        低頭沉默，眼底藏著千言萬語。<br><br>
-        <strong>款式B｜溫柔版</strong><br>
-        摘下眼鏡，露出難得的笑意。<br><br>
-        <strong>款式C｜傷痛版</strong><br>
-        濕潤雙眼，卻依然握緊你的手。
-      </div>
-      <div class="buy-section" id="hugh">
-        <select id="hugh-select">
-          <option value="款式A">款式A</option>
-          <option value="款式B">款式B</option>
-          <option value="款式C">款式C</option>
-        </select>
-        <button onclick="addToCart('hugh')">加入購物車</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Twin -->
-<section class="character-section">
-  <div class="top-wrapper">
-    <div class="character-left">
-      <img src="twin.jpeg" alt="兄弟角色原畫">
-    </div>
-    <div class="character-right">
-      <p>他是溫柔而無聲的春日，  
-      即便心碎，也仍然溫暖地擁抱著你。
-      他不懂溫柔，  
-      只能用尖銳的愛，將你拉進懷裡，霸道又絕望。</p>
-    </div>
-  </div>
-
-  <div class="bottom-wrapper" style="margin-top: 40px;">
-    <div class="character-left">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="7.1.png" alt="瀓硩公仔1"></div>
-          <div class="swiper-slide"><img src="8.1.png" alt="瀓硩公仔2"></div>
-          <div class="swiper-slide"><img src="9.1.png" alt="瀓硩公仔3"></div>
+        <div class="buy-section" id="lili">
+          <select id="lili-select">
+            <option value="款式A">款式A</option>
+            <option value="款式B">款式B</option>
+            <option value="款式C">款式C</option>
+          </select>
+          <button onclick="addToCart('lili')">加入購物車</button>
         </div>
-        <div class="swiper-pagination"></div>
       </div>
     </div>
 
-    <div class="character-right">
-      <div class="product-description">
-        <strong>款式A｜微笑版</strong><br>
-        淺淺一笑，柔光從他指尖流轉。<br><br>
-        <strong>款式B｜守護版</strong><br>
-        靜靜立在身旁，只為守候你的世界。<br><br>
-        <strong>款式C｜悲傷版</strong><br>
-        眼角微紅，仍舊輕輕為你拂去塵埃。
+  </div> <!-- End of character-block -->
+    <!-- 修 Hugh -->
+  <div class="character-block">
+    <h2 class="character-title">修｜Hugh</h2>
+
+    <div class="top-wrapper">
+      <div class="character-left">
+        <img src="hugh.png" alt="修角色原畫">
       </div>
-      <div class="buy-section" id="twin1">
-        <select id="twin1-select">
-          <option value="款式A">款式A</option>
-          <option value="款式B">款式B</option>
-          <option value="款式C">款式C</option>
-        </select>
-        <button onclick="addToCart('twin1')">加入購物車</button>
+      <div class="character-right">
+        <p>若能擁抱你一次，  
+        他甘願背負無盡沉默，  
+        將所有無法說出口的愛，藏進掌心。</p>
       </div>
     </div>
-  </div>
-</section>
+
+    <div class="bottom-wrapper" style="margin-top: 40px;">
+      <div class="character-left">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="4.1.png" alt="修公仔1"></div>
+            <div class="swiper-slide"><img src="5.1.png" alt="修公仔2"></div>
+            <div class="swiper-slide"><img src="6.1.png" alt="修公仔3"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <div class="character-right">
+        <div class="product-description">
+          <strong>款式A｜沉思版</strong><br>
+          低頭沉默，眼底藏著千言萬語。<br><br>
+          <strong>款式B｜溫柔版</strong><br>
+          摘下眼鏡，露出難得的笑意。<br><br>
+          <strong>款式C｜傷痛版</strong><br>
+          濕潤雙眼，卻依然握緊你的手。
+        </div>
+        <div class="buy-section" id="hugh">
+          <select id="hugh-select">
+            <option value="款式A">款式A</option>
+            <option value="款式B">款式B</option>
+            <option value="款式C">款式C</option>
+          </select>
+          <button onclick="addToCart('hugh')">加入購物車</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End of character-block -->
+
+  <!-- 瀓硩＋澂烲 Twin -->
+  <div class="character-block">
+    <h2 class="character-title">瀓硩＆澂烲｜Twin</h2>
+
+    <div class="top-wrapper">
+      <div class="character-left">
+        <img src="twin.jpeg" alt="雙子角色原畫">
+      </div>
+      <div class="character-right">
+        <p>他是溫柔而無聲的春日，  
+        即便心碎，也仍然溫暖地擁抱著你。  
+        他不懂溫柔，  
+        只能用尖銳的愛，將你拉進懷裡，霸道又絕望。</p>
+      </div>
+    </div>
+
+    <div class="bottom-wrapper" style="margin-top: 40px;">
+      <div class="character-left">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="7.1.png" alt="瀓硩公仔1"></div>
+            <div class="swiper-slide"><img src="8.1.png" alt="瀓硩公仔2"></div>
+            <div class="swiper-slide"><img src="9.1.png" alt="澂烲公仔3"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <div class="character-right">
+        <div class="product-description">
+          <strong>款式A｜微笑版</strong><br>
+          淺淺一笑，柔光從他指尖流轉。<br><br>
+          <strong>款式B｜守護版</strong><br>
+          靜靜立在身旁，只為守候你的世界。<br><br>
+          <strong>款式C｜悲傷版</strong><br>
+          眼角微紅，仍舊輕輕為你拂去塵埃。
+        </div>
+        <div class="buy-section" id="twin">
+          <select id="twin-select">
+            <option value="款式A">款式A</option>
+            <option value="款式B">款式B</option>
+            <option value="款式C">款式C</option>
+          </select>
+          <button onclick="addToCart('twin')">加入購物車</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End of character-block -->
+
+</section> <!-- End of character-section -->
 
 <!-- footer感謝 -->
 <footer>
@@ -310,49 +325,6 @@
 </script>
 
 <!-- 加入購物車功能 -->
-<script>
-function addToCart(id) {
-  const select = document.getElementById(id + "-select");
-  const selectedOption = select.options[select.selectedIndex].text;
-  alert(`已將【${selectedOption}】加入購物車！`);
-}
-</script>
-
-<!-- 櫻花飄落 -->
-<script>
-for (let i = 0; i < 30; i++) {
-  let sakura = document.createElement('div');
-  sakura.className = 'sakura';
-  sakura.textContent = '🌸';
-  sakura.style.left = Math.random() * 100 + 'vw';
-  sakura.style.fontSize = (14 + Math.random() * 10) + 'px';
-  sakura.style.animationDuration = (10 + Math.random() * 10) + 's, ' + (4 + Math.random() * 4) + 's';
-  sakura.style.opacity = 0.4 + Math.random() * 0.6;
-  document.body.appendChild(sakura);
-}
-</script>
-
-</body>
-</html>
-
-</section>
-<!-- Swiper -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script>
-  const swipers = document.querySelectorAll('.swiper');
-  swipers.forEach(swiperEl => {
-    new Swiper(swiperEl, {
-      loop: true,
-      autoplay: { delay: 3000 },
-      pagination: {
-        el: swiperEl.querySelector('.swiper-pagination'),
-        clickable: true,
-      }
-    });
-  });
-</script>
-
-<!-- 購物車功能 -->
 <script>
 function addToCart(id) {
   const select = document.getElementById(id + "-select");
