@@ -47,18 +47,20 @@
     .character-swiper, .character-illustration {
       flex: 1 1 50%;
       min-width: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      aspect-ratio: 3/4; /* 重點：左右固定比例 */
       overflow: hidden;
       border-radius: 10px;
       background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .character-swiper img, .character-illustration img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 10px;
+      display: block;
     }
     .character-text {
       text-align: center;
@@ -161,17 +163,17 @@
     
     <!-- 右：角色立繪 -->
     <div class="character-illustration">
-      <img src="li.png" alt="黎禮角色原圖">
+      <img src="lili-main.png" alt="黎禮角色原圖">
     </div>
   </div>
 
-  <!-- 名字＆副標語 -->
+  <!-- 名字＋副標 -->
   <div class="character-text">
     <h2>黎禮｜Li Li</h2>
     <h3>冷月之下，靜守一場無聲的相遇。</h3>
   </div>
 
-  <!-- 下方選單與按鈕 -->
+  <!-- 選單＋購物 -->
   <div class="buy-section" id="lili">
     <div class="buy-left">
       <select id="lili-select">
