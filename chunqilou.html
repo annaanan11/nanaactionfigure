@@ -37,66 +37,78 @@
       background: #fff9f7;
       border-radius: 20px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    }
+    .character-wrapper {
       display: flex;
-      flex-wrap: nowrap; /* 不換行 */
+      flex-wrap: nowrap;
       align-items: stretch;
       gap: 20px;
     }
-    .character-swiper, .character-info {
+    .character-swiper, .character-illustration {
       flex: 1 1 50%;
-      min-width: 0; /* 防止爆版 */
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #fff;
     }
-    .character-swiper img,
-    .character-info img {
-      max-width: 100%;
+    .character-swiper img, .character-illustration img {
       width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
+      height: 100%;
+      object-fit: cover;
       border-radius: 10px;
     }
-    .character-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: #4a4038;
+    .character-text {
+      text-align: center;
+      margin: 20px 0 10px;
     }
-    .character-info h2 {
-      margin: 10px 0 5px;
+    .character-text h2 {
       font-size: 2em;
+      margin: 0;
     }
-    .character-info h3 {
-      margin: 0 0 20px;
+    .character-text h3 {
       font-size: 1em;
       color: #7a6f67;
+      margin-top: 8px;
       font-style: italic;
     }
     .buy-section {
-      text-align: center;
       margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-    .buy-section select, .buy-section button {
-      padding: 8px 15px;
+    .buy-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .buy-left select, .buy-left p {
+      padding: 8px 12px;
       font-size: 1em;
-      margin: 5px;
       border-radius: 20px;
-      border: none;
-      cursor: pointer;
-    }
-    .buy-section select {
+      border: 1px solid #ccc;
       background-color: #fff9f7;
       color: #4a4038;
-      border: 1px solid #ccc;
     }
-    .buy-section button {
+    .buy-right button {
+      padding: 10px 25px;
+      font-size: 1em;
       background-color: #b07b78;
       color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
       transition: background-color 0.3s;
     }
-    .buy-section button:hover {
+    .buy-right button:hover {
       background-color: #a88c8a;
     }
-    .buy-section button:disabled {
+    .buy-right button:disabled {
       background-color: #ccc;
       cursor: not-allowed;
     }
@@ -133,34 +145,48 @@
   <p>艷麗與禁忌交織的故事</p>
 </header>
 
-<!-- 示例角色一：黎禮 -->
 <section class="character-section">
-  <div class="character-swiper">
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="1.1.png" alt="黎禮公仔1"></div>
-        <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
-        <div class="swiper-slide"><img src="3.1.png" alt="黎禮公仔3"></div>
+  
+  <div class="character-wrapper">
+    <!-- 左：滑動公仔 -->
+    <div class="character-swiper">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="1.1.png" alt="黎禮公仔1"></div>
+          <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
+          <div class="swiper-slide"><img src="3.1.png" alt="黎禮公仔3"></div>
+        </div>
       </div>
     </div>
+    
+    <!-- 右：角色立繪 -->
+    <div class="character-illustration">
+      <img src="li.png" alt="黎禮角色原圖">
+    </div>
   </div>
-  <div class="character-info">
-    <img src="li.png" alt="黎禮角色原圖">
+
+  <!-- 名字＆副標語 -->
+  <div class="character-text">
     <h2>黎禮｜Li Li</h2>
     <h3>冷月之下，靜守一場無聲的相遇。</h3>
-    <div class="buy-section" id="lili">
+  </div>
+
+  <!-- 下方選單與按鈕 -->
+  <div class="buy-section" id="lili">
+    <div class="buy-left">
       <select id="lili-select">
         <option value="款式A">款式A</option>
         <option value="款式B">款式B</option>
         <option value="款式C">款式C</option>
       </select>
       <p>庫存：<span class="stock">5</span> 件</p>
+    </div>
+    <div class="buy-right">
       <button onclick="addToCart('lili')">加入購物車</button>
     </div>
   </div>
-</section>
 
-<!-- 可以繼續複製上面區塊做其他角色：修、瀓硩、澂烲 -->
+</section>
 
 <footer>
   感謝你走進春綺樓 🌸
@@ -180,7 +206,7 @@
   });
 </script>
 
-<!-- 購物車功能 -->
+<!-- 加入購物車功能 -->
 <script>
 function addToCart(id) {
   const section = document.getElementById(id);
