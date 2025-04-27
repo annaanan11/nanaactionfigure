@@ -137,24 +137,34 @@
       color: #c1a7a5;
       padding: 40px 20px 20px;
     }
+    .character-block {
+  background: rgba(255,255,255,0.5);
+  border: 1px solid #e0d7cf;
+  border-radius: 20px;
+  padding: 30px 20px;
+  margin-bottom: 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative; /* 加這行！讓它有z-index屬性 */
+  z-index: 10; /* ←比櫻花高出很多 */
+}
     /* 櫻花CSS */
     .sakura {
-      position: fixed;
-      top: -10px;
-      font-size: 20px;
-      animation: fall linear infinite, sway ease-in-out infinite;
-      opacity: 0.6;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    @keyframes fall {
-      0% { transform: translateY(-10px) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(360deg); }
-    }
-    @keyframes sway {
-      0%, 100% { transform: translateX(0px); }
-      50% { transform: translateX(20px); }
-    }
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall linear infiFnite, sway ease-in-out infinite;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1; /* ←改成小小的1！ */
+}
+@keyframes fall {
+  0% { transform: translateY(-10px) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+@keyframes sway {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(20px); }
+}
 
     .back-to-home {
   position: fixed;
