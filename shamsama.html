@@ -5,211 +5,337 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>沙姆沙馬・公仔收藏系列</title>
 
-  <!-- Swiper 套件 -->
+  <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <style>
-body {
-  margin: 0;
-  padding: 0;
-  background: #f8f1e5; /* 柔和沙色 */
-  font-family: 'Poppins', sans-serif;
-  color: #5e4a30; /* 深咖啡 */
-  overflow-x: hidden;
-  position: relative;
-}
-header {
-  text-align: center;
-  padding: 60px 20px 20px;
-}
-header h1 {
-  font-size: 2.6em;
-  margin-bottom: 10px;
-}
-header p {
-  font-size: 1.2em;
-  color: #b58a58; /* 金棕色副標 */
-}
-.character-section {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 20px;
-  background: #f9f5ee; /* 淡金沙色 */
-  border-radius: 20px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-  position: relative;
-  overflow: hidden;
-}
-.character-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.character-header h2 {
-  font-size: 2em;
-  margin: 0;
-}
-.character-header h3 {
-  font-size: 1.1em;
-  color: #b58a58;
-  margin: 8px 0;
-}
-.swiper {
-  width: 100%;
-  height: 320px;
-  margin-bottom: 20px;
-  border-radius: 15px;
-  overflow: hidden;
-}
-.swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.character-info {
-  font-size: 1em;
-  line-height: 1.8em;
-  padding: 0 15px;
-}
-.quote {
-  margin-top: 20px;
-  font-style: italic;
-  text-align: center;
-  color: #b09060; /* 柔暖金色英文詩句 */
-}
-footer {
-  text-align: center;
-  font-size: 0.9em;
-  color: #c1a7a5;
-  padding: 40px 20px 20px;
-}
-.dust {
-  position: fixed;
-  top: -5px;
-  width: 2px;
-  height: 2px;
-  background: #e8d5b5;
-  border-radius: 50%;
-  opacity: 0.5;
-  animation: dustMove linear infinite;
-  pointer-events: none;
-  z-index: 2;
-}
-@keyframes dustMove {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translate(30vw, 110vh) scale(0.5);
-    opacity: 0;
-  }
-}
-
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f6f1e7; /* 沙漠米色背景 */
+      font-family: 'Poppins', sans-serif;
+      color: #5e5141; /* 深沙色字 */
+      overflow-x: hidden;
+      position: relative;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #a88c5c;
+    }
+    .character-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+    .character-block {
+      background: rgba(255,255,255,0.4);
+      border: 1px solid #d8c9a6;
+      border-radius: 20px;
+      padding: 30px 20px;
+      margin-bottom: 60px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .character-title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #5e5141;
+      font-weight: 600;
+    }
+    .top-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .character-left, .character-right {
+      flex: 1 1 45%;
+      min-width: 200px;
+      text-align: center;
+    }
+    .character-left img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      object-fit: cover;
+    }
+    .character-right p {
+      font-size: 1.1em;
+      padding: 10px;
+      line-height: 1.8em;
+    }
+    .swiper {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .swiper-slide img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .product-description {
+      margin-bottom: 20px;
+      font-size: 1em;
+      line-height: 1.6em;
+      text-align: center;
+    }
+    .buy-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .buy-section select {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: 1px solid #c2a97e;
+      background: transparent;
+      color: #5e5141;
+      font-size: 1em;
+    }
+    .buy-section button {
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      background: #c2a97e;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .buy-section button:hover {
+      background: #a88c5c;
+    }
+    .stock-info {
+      font-size: 1em;
+      color: #a88c5c;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #a88c5c;
+      padding: 40px 20px 20px;
+    }
+    /* 沙塵粒子 */
+    .dust {
+      position: fixed;
+      top: -5px;
+      width: 5px;
+      height: 5px;
+      background: rgba(160, 140, 100, 0.3);
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: dustMove linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes dustMove {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+      100% { transform: translate(40vw, 110vh) scale(0.3); opacity: 0; }
+    }
   </style>
 </head>
 
 <body>
-<script>
-  for (let i = 0; i < 20; i++) {
-    let dust = document.createElement('div');
-    dust.className = 'dust';
-    dust.style.left = Math.random() * 100 + 'vw';
-    dust.style.width = (2 + Math.random() * 2) + 'px';
-    dust.style.height = (2 + Math.random() * 2) + 'px';
-    dust.style.background = Math.random() > 0.5 ? '#e8d5b5' : '#d8c5a5';
-    dust.style.animationDuration = (10 + Math.random() * 10) + 's';
-    dust.style.animationDelay = Math.random() * 5 + 's';
-    document.body.appendChild(dust);
-  }
-</script>
 
 <header>
   <h1>沙姆沙馬・公仔收藏系列</h1>
-  <p>流砂之中，誕生的傳奇</p>
+  <p>流沙與星辰下的約定</p>
 </header>
 
-<!-- ------- 律嵂 ------- -->
 <section class="character-section">
-  <div class="character-header">
-    <h2>律嵂｜Lu Lyu</h2>
-    <h3>自由如風，溫柔與野性並行。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="your-image13.jpg" alt="律嵂公仔1"></div>
-      <div class="swiper-slide"><img src="your-image14.jpg" alt="律嵂公仔2"></div>
-      <div class="swiper-slide"><img src="your-image15.jpg" alt="律嵂公仔3"></div>
+
+  <!-- 🔥律嵂｜Lül 區塊🔥 -->
+<div class="character-block">
+  <h2 class="character-title">律嵂｜Lül</h2>
+
+  <div class="top-wrapper">
+    <div class="character-left">
+      <img src="lul.png" alt="律嵂角色原畫">
+    </div>
+    <div class="character-right">
+      <p>他是沙丘中微光般的存在，<br>
+      縱然世界荒蕪，<br>
+      他仍帶著一抹溫柔的笑意，<br>
+      在風起的盡頭，等待你的到來。</p>
     </div>
   </div>
-  <div class="character-info">
-    ✦ 身高：198cm<br>
-    ✦ 生日：6月6日<br>
-    ✦ 喜好：沙漠之旅、飛鷹<br>
-    ✦ 特技：情報收集、劍術
-    <div class="quote">"In the endless dunes, he is the laughter against the wind."</div>
-  </div>
-</section>
 
-<!-- ------- 緋霏 ------- -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>緋霏｜Fei Fei</h2>
-    <h3>荊棘中盛開的白玫瑰，藏著尖銳的刺。</h3>
-  </div>
   <div class="swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="your-image16.jpg" alt="緋霏公仔1"></div>
-      <div class="swiper-slide"><img src="your-image17.jpg" alt="緋霏公仔2"></div>
-      <div class="swiper-slide"><img src="your-image18.jpg" alt="緋霏公仔3"></div>
+      <div class="swiper-slide"><img src="lul-1.png" alt="律嵂公仔1"></div>
+      <div class="swiper-slide"><img src="lul-2.png" alt="律嵂公仔2"></div>
+      <div class="swiper-slide"><img src="lul-3.png" alt="律嵂公仔3"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="product-description">
+    <strong>款式A｜王子版</strong><br>頭戴金飾，微笑面對沙暴。<br><br>
+    <strong>款式B｜戰鬥版</strong><br>劍鋒染沙，英姿不減。<br><br>
+    <strong>款式C｜守護版</strong><br>背對黃沙，只為你留住最後的光。
+  </div>
+
+  <div class="buy-section" id="lul">
+    <select id="lul-select">
+      <option value="款式A">款式A</option>
+      <option value="款式B">款式B</option>
+      <option value="款式C">款式C</option>
+    </select>
+    <span class="stock-info">庫存：5件</span>
+    <button onclick="addToCart('lul')">加入購物車</button>
+  </div>
+</div>
+
+  <!-- 🔥緋霏｜Fei 區塊🔥 -->
+<div class="character-block">
+  <h2 class="character-title">緋霏｜Fei</h2>
+
+  <div class="top-wrapper">
+    <div class="character-left">
+      <img src="fei.png" alt="緋霏角色原畫">
+    </div>
+    <div class="character-right">
+      <p>寂靜之夜，<br>
+      他金色的髮絲沾滿星辰，<br>
+      唇角微揚，卻掩不住眼底的疲憊，<br>
+      他將痛苦隱藏，<br>
+      將你輕輕收入懷裡，像一場秘密的救贖。</p>
     </div>
   </div>
-  <div class="character-info">
-    ✦ 身高：194cm<br>
-    ✦ 生日：9月9日<br>
-    ✦ 喜好：藝術、謎語<br>
-    ✦ 特技：權謀、操控人心
-    <div class="quote">"Beneath the softest gaze, lies the sharpest blade."</div>
-  </div>
-</section>
 
-<!-- ------- 丹䒟 ------- -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>丹䒟｜Dan Dan</h2>
-    <h3>沉默黑翼，為忠誠而生的守護者。</h3>
-  </div>
   <div class="swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="your-image19.jpg" alt="丹䒟公仔1"></div>
-      <div class="swiper-slide"><img src="your-image20.jpg" alt="丹䒟公仔2"></div>
-      <div class="swiper-slide"><img src="your-image21.jpg" alt="丹䒟公仔3"></div>
+      <div class="swiper-slide"><img src="fei-1.png" alt="緋霏公仔1"></div>
+      <div class="swiper-slide"><img src="fei-2.png" alt="緋霏公仔2"></div>
+      <div class="swiper-slide"><img src="fei-3.png" alt="緋霏公仔3"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="product-description">
+    <strong>款式A｜溫柔版</strong><br>金髮散落肩頭，靜靜凝視你。<br><br>
+    <strong>款式B｜微笑版</strong><br>輕輕一笑，撫平你的不安。<br><br>
+    <strong>款式C｜沉思版</strong><br>眼神迷離，思索著無法言說的悲傷。
+  </div>
+
+  <div class="buy-section" id="fei">
+    <select id="fei-select">
+      <option value="款式A">款式A</option>
+      <option value="款式B">款式B</option>
+      <option value="款式C">款式C</option>
+    </select>
+    <span class="stock-info">庫存：5件</span>
+    <button onclick="addToCart('fei')">加入購物車</button>
+  </div>
+</div>
+
+  <!-- 🔥丹䒟｜Dan 區塊🔥 -->
+<div class="character-block">
+  <h2 class="character-title">丹䒟｜Dan</h2>
+
+  <div class="top-wrapper">
+    <div class="character-left">
+      <img src="dan.png" alt="丹䒟角色原畫">
+    </div>
+    <div class="character-right">
+      <p>他沉默如夜，<br>
+      腳步踏碎沉沙，眼神穿越荒原，<br>
+      為了守護心中唯一的光，<br>
+      甘願成為孤獨行走的鷹。</p>
     </div>
   </div>
-  <div class="character-info">
-    ✦ 身高：203cm<br>
-    ✦ 生日：2月2日<br>
-    ✦ 喜好：刀、暗夜之路<br>
-    ✦ 特技：潛行、戰鬥
-    <div class="quote">"The shadows he walks, only the faithful can follow."</div>
-  </div>
-</section>
 
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="dan-1.png" alt="丹䒟公仔1"></div>
+      <div class="swiper-slide"><img src="dan-2.png" alt="丹䒟公仔2"></div>
+      <div class="swiper-slide"><img src="dan-3.png" alt="丹䒟公仔3"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="product-description">
+    <strong>款式A｜冷靜版</strong><br>目光如刃，穿越黃沙。<br><br>
+    <strong>款式B｜守護版</strong><br>默默守望，不語的溫柔。<br><br>
+    <strong>款式C｜覺醒版</strong><br>燃起金眸，踏破孤寂的夜。
+  </div>
+
+  <div class="buy-section" id="dan">
+    <select id="dan-select">
+      <option value="款式A">款式A</option>
+      <option value="款式B">款式B</option>
+      <option value="款式C">款式C</option>
+    </select>
+    <span class="stock-info">庫存：5件</span>
+    <button onclick="addToCart('dan')">加入購物車</button>
+  </div>
+</div>
+
+  </section>
+
+<!-- footer感謝 -->
 <footer>
-  感謝你踏入沙姆沙馬的國度 🏜️
+  黃沙千里，愛在星辰之下。🌙
 </footer>
 
-<!-- Swiper 套件 -->
+<!-- Swiper 滑動功能 -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
-  const swipers = document.querySelectorAll('.swiper');
-  swipers.forEach(function(swiperEl) {
+  document.querySelectorAll('.swiper').forEach(swiperEl => {
     new Swiper(swiperEl, {
       loop: true,
       autoplay: { delay: 3000 },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+      pagination: {
+        el: swiperEl.querySelector('.swiper-pagination'),
+        clickable: true
+      }
     });
   });
+</script>
+
+<!-- 加入購物車功能 -->
+<script>
+function addToCart(id) {
+  const select = document.getElementById(id + "-select");
+  const selectedOption = select.options[select.selectedIndex].text;
+  alert(`已將【${selectedOption}】加入購物車！`);
+}
+</script>
+
+<!-- 沙塵粒子飄落特效 -->
+<script>
+for (let i = 0; i < 50; i++) {
+  let dust = document.createElement('div');
+  dust.className = 'dust';
+  dust.style.left = Math.random() * 100 + 'vw';
+  dust.style.width = (4 + Math.random() * 2) + 'px';
+  dust.style.height = (4 + Math.random() * 2) + 'px';
+  dust.style.animationDuration = (30 + Math.random() * 20) + 's';
+  dust.style.opacity = 0.2 + Math.random() * 0.3;
+  document.body.appendChild(dust);
+}
 </script>
 
 </body>
