@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>春綺樓・公仔收藏系列</title>
 
-  <!-- Swiper 套件 -->
+  <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <style>
@@ -47,7 +47,7 @@
     .character-swiper, .character-illustration {
       flex: 1 1 50%;
       min-width: 0;
-      aspect-ratio: 3/4; /* 重點：左右固定比例 */
+      aspect-ratio: 3/4;
       overflow: hidden;
       border-radius: 10px;
       background: #fff;
@@ -77,12 +77,12 @@
       font-style: italic;
     }
     .buy-section {
-      margin-top: 20px;
+      margin-top: 10px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 15px;
     }
     .buy-left {
       display: flex;
@@ -158,34 +158,36 @@
           <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
           <div class="swiper-slide"><img src="3.1.png" alt="黎禮公仔3"></div>
         </div>
+        <div class="swiper-pagination"></div> <!-- 分頁點點 -->
       </div>
     </div>
     
     <!-- 右：角色立繪 -->
     <div class="character-illustration">
-      <img src="li.png" alt="黎禮角色原圖">
+      <img src="lili-main.png" alt="黎禮角色原圖">
     </div>
   </div>
 
-  <!-- 名字＋副標 -->
+  <!-- 名字＋副標語 -->
   <div class="character-text">
     <h2>黎禮｜Li Li</h2>
     <h3>冷月之下，靜守一場無聲的相遇。</h3>
-  </div>
 
-  <!-- 選單＋購物 -->
-  <div class="buy-section" id="lili">
-    <div class="buy-left">
-      <select id="lili-select">
-        <option value="款式A">款式A</option>
-        <option value="款式B">款式B</option>
-        <option value="款式C">款式C</option>
-      </select>
-      <p>庫存：<span class="stock">5</span> 件</p>
+    <!-- 購物區塊（跟副標語放一起） -->
+    <div class="buy-section" id="lili">
+      <div class="buy-left">
+        <select id="lili-select">
+          <option value="款式A">款式A</option>
+          <option value="款式B">款式B</option>
+          <option value="款式C">款式C</option>
+        </select>
+        <p>庫存：<span class="stock">5</span> 件</p>
+      </div>
+      <div class="buy-right">
+        <button onclick="addToCart('lili')">加入購物車</button>
+      </div>
     </div>
-    <div class="buy-right">
-      <button onclick="addToCart('lili')">加入購物車</button>
-    </div>
+
   </div>
 
 </section>
@@ -194,7 +196,7 @@
   感謝你走進春綺樓 🌸
 </footer>
 
-<!-- Swiper -->
+<!-- Swiper功能 -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
   const swipers = document.querySelectorAll('.swiper');
@@ -202,13 +204,12 @@
     new Swiper(swiperEl, {
       loop: true,
       autoplay: { delay: 3000 },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+      pagination: { el: swiperEl.querySelector('.swiper-pagination'), clickable: true },
     });
   });
 </script>
 
-<!-- 加入購物車功能 -->
+<!-- 購物車功能 -->
 <script>
 function addToCart(id) {
   const section = document.getElementById(id);
