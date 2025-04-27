@@ -202,4 +202,63 @@
     ✦ 身高：190cm<br>
     ✦ 氣味：蘭花香<br>
     ✦ 是血色裡的柔光
-    <div class="quote">"A fragi
+    <div class="quote">"A fragile smile stolen from fate."</div>
+  </div>
+  <div class="buy-section" id="youyou">
+    <p>庫存：<span class="stock">1</span> 件</p>
+    <button onclick="addToCart('youyou')">加入購物車</button>
+  </div>
+</section>
+
+<footer>
+  感謝你走進繡骨台 🎭
+</footer>
+
+<!-- Swiper套件 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swipers = document.querySelectorAll('.swiper');
+  swipers.forEach(function(swiperEl) {
+    new Swiper(swiperEl, {
+      loop: true,
+      autoplay: { delay: 3000 },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+    });
+  });
+</script>
+
+<!-- 購物車功能 -->
+<script>
+function addToCart(id) {
+  const section = document.getElementById(id);
+  const stockSpan = section.querySelector('.stock');
+  let stock = parseInt(stockSpan.textContent);
+
+  if (stock > 0) {
+    stock -= 1;
+    stockSpan.textContent = stock;
+    alert("已加入購物車！");
+    if (stock === 0) {
+      const button = section.querySelector('button');
+      button.textContent = "已售完";
+      button.disabled = true;
+    }
+  }
+}
+</script>
+
+<!-- 微光塵埃粒子 -->
+<script>
+for (let i = 0; i < 30; i++) {
+  let dust = document.createElement('div');
+  dust.className = 'dust';
+  dust.style.left = Math.random() * 100 + 'vw';
+  dust.style.animationDuration = (20 + Math.random() * 20) + 's';
+  dust.style.opacity = 0.2 + Math.random() * 0.5;
+  document.body.appendChild(dust);
+}
+</script>
+
+</body>
+</html>
