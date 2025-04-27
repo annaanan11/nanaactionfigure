@@ -43,6 +43,9 @@
     }
     .character-swiper {
       flex: 1 1 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .character-info {
       flex: 1 1 45%;
@@ -51,10 +54,12 @@
       justify-content: center;
       color: #4a4038;
     }
+    .character-swiper img,
     .character-info img {
-      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
       border-radius: 10px;
-      margin-bottom: 20px;
     }
     .character-info h2 {
       margin: 10px 0 5px;
@@ -101,6 +106,7 @@
       color: #a49a91;
       padding: 40px 20px 20px;
     }
+    /* 微光塵埃 */
     .dust {
       position: fixed;
       top: -5px;
@@ -127,34 +133,32 @@
   <p>舊夢未歇，戲魂未央</p>
 </header>
 
-<!-- 平蘋 -->
+<!-- 平蘋角色區 -->
 <section class="character-section">
   <div class="character-swiper">
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="10.1.png" alt="佐左公仔1"></div>
-        <div class="swiper-slide"><img src="sakuza-2.jpg" alt="佐左公仔2"></div>
-        <div class="swiper-slide"><img src="sakuza-3.jpg" alt="佐左公仔3"></div>
+        <div class="swiper-slide"><img src="10.1.png" alt="平蘋公仔1"></div>
+        <div class="swiper-slide"><img src="sakuza-2.jpg" alt="平蘋公仔2"></div>
+        <div class="swiper-slide"><img src="sakuza-3.jpg" alt="平蘋公仔3"></div>
       </div>
     </div>
   </div>
   <div class="character-info">
-    <img src="0000.png" alt="佐左角色原圖">
-    <h2>佐左｜Sakuza</h2>
-    <h3>戰場之犬，命定的孤魂。</h3>
-    <div class="buy-section" id="sakuza">
-      <select id="sakuza-select">
+    <img src="ping.png" alt="平蘋角色原圖">
+    <h2>平蘋｜Pingping</h2>
+    <h3>破碎花影裡唯一的執念。</h3>
+    <div class="buy-section" id="pingping">
+      <select id="pingping-select">
         <option value="款式A">款式A</option>
         <option value="款式B">款式B</option>
         <option value="款式C">款式C</option>
       </select>
       <p>庫存：<span class="stock">5</span> 件</p>
-      <button onclick="addToCart('sakuza')">加入購物車</button>
+      <button onclick="addToCart('pingping')">加入購物車</button>
     </div>
   </div>
 </section>
-
-<!-- 之後平蘋、佑祐可以照這個格式複製貼上 -->
 
 <footer>
   感謝你走進繡骨台 🎭
