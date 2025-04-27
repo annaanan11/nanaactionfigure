@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>春綺樓・公仔收藏系列</title>
-  
-  <!-- Swiper 套件用來做圖片滑動 -->
+  <title>繡骨台・公仔收藏系列</title>
+
+  <!-- Swiper 套件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  
+
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #fdfaf7;
+      background: #1f2a24;
       font-family: 'Poppins', sans-serif;
-      color: #5b4b47;
+      color: #eee9e0;
       overflow-x: hidden;
       position: relative;
     }
@@ -23,295 +23,144 @@
       padding: 60px 20px 20px;
     }
     header h1 {
-      font-size: 2.8em;
+      font-size: 2.6em;
       margin-bottom: 10px;
     }
     header p {
       font-size: 1.2em;
-      color: #a88c8a;
+      color: #c8b887;
     }
     .character-section {
-      max-width: 800px;
+      max-width: 1100px;
       margin: 60px auto;
       padding: 20px;
-      background: #fff9f7;
+      background: #f5f1e5;
       border-radius: 20px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-    .character-header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .character-header h2 {
-      font-size: 2em;
-      margin: 0;
-    }
-    .character-header h3 {
-      font-size: 1.1em;
-      color: #b07b78;
-      margin: 8px 0;
-    }
-    .swiper {
-      width: 100%;
-      height: 320px;
-      margin-bottom: 20px;
-      border-radius: 15px;
-      overflow: hidden;
-    }
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    .character-swiper {
+      flex: 1 1 45%;
     }
     .character-info {
-      font-size: 1em;
-      line-height: 1.8em;
-      padding: 0 15px;
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #4a4038;
     }
-    .quote {
-      margin-top: 20px;
+    .character-info img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .character-info h2 {
+      margin: 10px 0 5px;
+      font-size: 2em;
+    }
+    .character-info h3 {
+      margin: 0 0 20px;
+      font-size: 1em;
+      color: #7a6f67;
       font-style: italic;
-      text-align: center;
-      color: #b07b78;
     }
     .buy-section {
-  text-align: center;
-  margin-top: 20px;
-}
-.buy-section button {
-  padding: 8px 20px;
-  font-size: 1em;
-  background-color: #f8b7b7;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.buy-section button:hover {
-  background-color: #f28f8f;
-}
-.buy-section button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
+      text-align: center;
+      margin-top: 20px;
+    }
+    .buy-section select, .buy-section button {
+      padding: 8px 15px;
+      font-size: 1em;
+      margin: 5px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+    }
+    .buy-section select {
+      background-color: #f5f1e5;
+      color: #4a4038;
+      border: 1px solid #ccc;
+    }
+    .buy-section button {
+      background-color: #6b7c5e;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    .buy-section button:hover {
+      background-color: #a79d70;
+    }
+    .buy-section button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
     footer {
       text-align: center;
       font-size: 0.9em;
-      color: #c1a7a5;
+      color: #a49a91;
       padding: 40px 20px 20px;
     }
-    /* 櫻花動畫 */
-<style>
-  .sakura {
-    position: fixed;
-    top: -10px;
-    font-size: 20px;
-    animation: fall linear infinite;
-    opacity: 0.8;
-    pointer-events: none;
-    z-index: 9999;
-  }
-  .sakura::after {
-    content: '🌸';
-  }
-  @keyframes fall {
-    0% { transform: translateY(-10px) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(360deg); }
-  }
-  .sakura {
-  position: fixed;
-  top: -10px;
-  font-size: 16px;
-  animation: fall linear infinite, sway ease-in-out infinite;
-  opacity: 0.7;
-  pointer-events: none;
-  z-index: 9999;
-}
-.sakura::after {
-  content: '🌸';
-}
-@keyframes fall {
-  0% { transform: translateY(-10px) rotate(0deg); }
-  100% { transform: translateY(110vh) rotate(360deg); }
-}
-@keyframes sway {
-  0%, 100% { transform: translateX(0px); }
-  50% { transform: translateX(20px); }
-}
-
-</style>
-
-<script>
-  for (let i = 0; i < 15; i++) {
-    let sakura = document.createElement('div');
-    sakura.className = 'sakura';
-    sakura.style.left = Math.random() * 100 + 'vw';
-    sakura.style.animationDuration = (5 + Math.random() * 5) + 's';
-    sakura.style.opacity = 0.5 + Math.random() * 0.5;
-    document.body.appendChild(sakura);
-  }
-</script>
-
+    .dust {
+      position: fixed;
+      top: -5px;
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: dustMove linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes dustMove {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+      100% { transform: translate(40vw, 110vh) scale(0.5); opacity: 0; }
+    }
+  </style>
 </head>
 
 <body>
+
 <header>
-  <h1>春綺樓・公仔收藏系列</h1>
-  <p>艷麗與禁忌交織的故事</p>
+  <h1>繡骨台・公仔收藏系列</h1>
+  <p>舊夢未歇，戲魂未央</p>
 </header>
 
-<!-- 角色區塊們 -->
-<!-- ------- 黎禮 ------- -->
+<!-- 佐左 -->
 <section class="character-section">
-  <div class="character-header">
-    <h2>黎禮｜Li Li</h2>
-    <h3>冷月之下，靜守一場無聲的相遇。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="1.1.png" alt="黎禮公仔1"></div>
-      <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
-      <div class="swiper-slide"><img src="your-image3.jpg" alt="黎禮公仔3"></div>
+  <div class="character-swiper">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="sakuza-1.jpg" alt="佐左公仔1"></div>
+        <div class="swiper-slide"><img src="sakuza-2.jpg" alt="佐左公仔2"></div>
+        <div class="swiper-slide"><img src="sakuza-3.jpg" alt="佐左公仔3"></div>
+      </div>
     </div>
   </div>
   <div class="character-info">
-    ✦ 身高：192cm<br>
-    ✦ 生日：8月8日<br>
-    ✦ 溫柔、可愛<br>
-    ✦ 你的狗狗
-    <div class="quote">"In the stillness of the moon, he awaits only you."</div>
-  </div>
-
-  <!-- 加購物車區塊 -->
-  <div class="buy-section" id="li-li">
-    <p>庫存：<span class="stock">5</span> 件</p>
-    <button onclick="addToCart('li-li')">加入購物車</button>
-  </div>
-</section>
-
-
-<!-- ------- 修（Hugh） ------- -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>修｜Hugh</h2>
-    <h3>愛與責任的拉扯。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="4.1.png" alt="修公仔1"></div>
-      <div class="swiper-slide"><img src="your-image5.jpg" alt="修公仔2"></div>
-      <div class="swiper-slide"><img src="your-image6.jpg" alt="修公仔3"></div>
+    <img src="sakuza-main.jpg" alt="佐左角色原圖">
+    <h2>佐左｜Sakuza</h2>
+    <h3>戰場之犬，命定的孤魂。</h3>
+    <div class="buy-section" id="sakuza">
+      <select id="sakuza-select">
+        <option value="款式A">款式A</option>
+        <option value="款式B">款式B</option>
+        <option value="款式C">款式C</option>
+      </select>
+      <p>庫存：<span class="stock">5</span> 件</p>
+      <button onclick="addToCart('sakuza')">加入購物車</button>
     </div>
   </div>
-  <!-- 加購物車區塊 -->
-  <div class="buy-section" id="li-li">
-    <p>庫存：<span class="stock">6</span> 件</p>
-    <button onclick="addToCart('li-li')">加入購物車</button>
-  </div>
-</section>
-  <div class="character-info">
-    ✦ 身高：190cm<br>
-    ✦ 生日：7月21日<br>
-    ✦ 巧克力香<br>
-    ✦ 你的daddy
-    <div class="quote">"A silken thread, a heart ensnared."</div>
-  </div>
 </section>
 
-<!-- -------瀓硩 ------- -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>瀓硩</h2>
-    <h3>掉入他的優雅之中。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="your-image7.jpg" alt="修公仔1"></div>
-      <div class="swiper-slide"><img src="your-image8.jpg" alt="修公仔2"></div>
-      <div class="swiper-slide"><img src="your-image9.jpg" alt="修公仔3"></div>
-    </div>
-  </div>
-  <div class="character-info">
-    ✦ 身高：189cm<br>
-    ✦ 生日：3月11日<br>
-    ✦ 白茶香<br>
-    ✦ 溫柔陷阱
-    <div class="quote">"A silent promise, lingering in the warmth of his touch."</div>
-  </div>
-</section>
-<!-- 加購物車區塊 -->
-  <div class="buy-section" id="li-li">
-    <p>庫存：<span class="stock">7</span> 件</p>
-    <button onclick="addToCart('li-li')">加入購物車</button>
-  </div>
-</section>
-<!-- ------- 澂烲 ------- -->
-<section class="character-section">
-  <div class="character-header">
-    <h2>澂烲</h2>
-    <h3>瘋狗。</h3>
-  </div>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="your-image10.jpg" alt="雙子公仔1"></div>
-      <div class="swiper-slide"><img src="your-image11.jpg" alt="雙子公仔2"></div>
-      <div class="swiper-slide"><img src="your-image12.jpg" alt="雙子公仔3"></div>
-    </div>
-  </div>
-  <div class="character-info">
-    ✦ 身高：189cm<br>
-    ✦ 生日：3月11日<br>
-    ✦ 威士忌香<br>
-    ✦ 瘋狗
-    <div class="quote">"Two hearts entwined, choosing which half will devour you first."</div>
-  </div>
-</section>
-<!-- 加購物車區塊 -->
-  <div class="buy-section" id="li-li">
-    <p>庫存：<span class="stock">52</span> 件</p>
-    <button onclick="addToCart('li-li')">加入購物車</button>
-  </div>
-</section>
-<!-- 頁尾感謝 -->
+<!-- 之後平蘋、佑祐可以照這個格式複製貼上 -->
+
 <footer>
-  感謝你走進春綺樓的世界 🌸
+  感謝你走進繡骨台 🎭
 </footer>
-<script>
-function addToCart(id) {
-  const section = document.getElementById(id);
-  const stockSpan = section.querySelector('.stock');
-  let stock = parseInt(stockSpan.textContent);
 
-  if (stock > 0) {
-    stock -= 1;
-    stockSpan.textContent = stock;
-    alert("已加入購物車！");
-    
-    if (stock === 0) {
-      const button = section.querySelector('button');
-      button.textContent = "已售完";
-      button.disabled = true;
-    }
-  }
-}
-</script>
-
-<!-- sakura花瓣 -->
-<script>
-  for (let i = 0; i < 15; i++) {
-    let sakura = document.createElement('div');
-    sakura.className = 'sakura';
-    sakura.style.left = Math.random() * 100 + 'vw';
-    sakura.style.animationDuration = 5 + Math.random() * 5 + 's';
-    sakura.style.opacity = Math.random();
-    document.body.appendChild(sakura);
-  }
-</script>
-
-<!-- Swiper 滑動功能 -->
+<!-- Swiper -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
   const swipers = document.querySelectorAll('.swiper');
@@ -323,6 +172,41 @@ function addToCart(id) {
       navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
     });
   });
+</script>
+
+<!-- 加入購物車功能 -->
+<script>
+function addToCart(id) {
+  const section = document.getElementById(id);
+  const stockSpan = section.querySelector('.stock');
+  const select = document.getElementById(id + "-select");
+  let stock = parseInt(stockSpan.textContent);
+
+  if (stock > 0) {
+    stock -= 1;
+    stockSpan.textContent = stock;
+    alert(`已將 [${select.value}] 加入購物車！`);
+    if (stock === 0) {
+      const button = section.querySelector('button');
+      button.textContent = "已售完";
+      button.disabled = true;
+    }
+  }
+}
+</script>
+
+<!-- 微光塵埃粒子 -->
+<script>
+for (let i = 0; i < 50; i++) {
+  let dust = document.createElement('div');
+  dust.className = 'dust';
+  dust.style.left = Math.random() * 100 + 'vw';
+  dust.style.width = (4 + Math.random() * 2) + 'px';
+  dust.style.height = (4 + Math.random() * 2) + 'px';
+  dust.style.animationDuration = (25 + Math.random() * 25) + 's';
+  dust.style.opacity = 0.4 + Math.random() * 0.3;
+  document.body.appendChild(dust);
+}
 </script>
 
 </body>
