@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>繡骨台・公仔收藏系列</title>
+  <title>春綺樓・公仔收藏系列</title>
 
   <!-- Swiper 套件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -12,9 +12,9 @@
     body {
       margin: 0;
       padding: 0;
-      background: #1f2a24;
+      background: #fdfaf7;
       font-family: 'Poppins', sans-serif;
-      color: #eee9e0;
+      color: #5b4b47;
       overflow-x: hidden;
       position: relative;
     }
@@ -23,43 +23,43 @@
       padding: 60px 20px 20px;
     }
     header h1 {
-      font-size: 2.6em;
+      font-size: 2.8em;
       margin-bottom: 10px;
     }
     header p {
       font-size: 1.2em;
-      color: #c8b887;
+      color: #a88c8a;
     }
     .character-section {
       max-width: 1100px;
       margin: 60px auto;
       padding: 20px;
-      background: #f5f1e5;
+      background: #fff9f7;
       border-radius: 20px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap; /* 不換行 */
+      align-items: stretch;
       gap: 20px;
     }
-    .character-swiper {
-      flex: 1 1 45%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .character-info {
-      flex: 1 1 45%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: #4a4038;
+    .character-swiper, .character-info {
+      flex: 1 1 50%;
+      min-width: 0; /* 防止爆版 */
     }
     .character-swiper img,
     .character-info img {
       max-width: 100%;
+      width: 100%;
       height: auto;
+      object-fit: contain;
       display: block;
       border-radius: 10px;
+    }
+    .character-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #4a4038;
     }
     .character-info h2 {
       margin: 10px 0 5px;
@@ -84,17 +84,17 @@
       cursor: pointer;
     }
     .buy-section select {
-      background-color: #f5f1e5;
+      background-color: #fff9f7;
       color: #4a4038;
       border: 1px solid #ccc;
     }
     .buy-section button {
-      background-color: #6b7c5e;
+      background-color: #b07b78;
       color: white;
       transition: background-color 0.3s;
     }
     .buy-section button:hover {
-      background-color: #a79d70;
+      background-color: #a88c8a;
     }
     .buy-section button:disabled {
       background-color: #ccc;
@@ -103,16 +103,16 @@
     footer {
       text-align: center;
       font-size: 0.9em;
-      color: #a49a91;
+      color: #c1a7a5;
       padding: 40px 20px 20px;
     }
-    /* 微光塵埃 */
+    /* 微光塵埃粒子 */
     .dust {
       position: fixed;
       top: -5px;
       width: 5px;
       height: 5px;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.3);
       border-radius: 50%;
       opacity: 0.7;
       animation: dustMove linear infinite;
@@ -129,39 +129,41 @@
 <body>
 
 <header>
-  <h1>繡骨台・公仔收藏系列</h1>
-  <p>舊夢未歇，戲魂未央</p>
+  <h1>春綺樓・公仔收藏系列</h1>
+  <p>艷麗與禁忌交織的故事</p>
 </header>
 
-<!-- 平蘋角色區 -->
+<!-- 示例角色一：黎禮 -->
 <section class="character-section">
   <div class="character-swiper">
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="10.1.png" alt="平蘋公仔1"></div>
-        <div class="swiper-slide"><img src="sakuza-2.jpg" alt="平蘋公仔2"></div>
-        <div class="swiper-slide"><img src="sakuza-3.jpg" alt="平蘋公仔3"></div>
+        <div class="swiper-slide"><img src="1.1.png" alt="黎禮公仔1"></div>
+        <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
+        <div class="swiper-slide"><img src="3.1.png" alt="黎禮公仔3"></div>
       </div>
     </div>
   </div>
   <div class="character-info">
-    <img src="0000.png" alt="平蘋角色原圖">
-    <h2>平蘋｜Pingping</h2>
-    <h3>破碎花影裡唯一的執念。</h3>
-    <div class="buy-section" id="pingping">
-      <select id="pingping-select">
+    <img src="lili-main.png" alt="黎禮角色原圖">
+    <h2>黎禮｜Li Li</h2>
+    <h3>冷月之下，靜守一場無聲的相遇。</h3>
+    <div class="buy-section" id="lili">
+      <select id="lili-select">
         <option value="款式A">款式A</option>
         <option value="款式B">款式B</option>
         <option value="款式C">款式C</option>
       </select>
       <p>庫存：<span class="stock">5</span> 件</p>
-      <button onclick="addToCart('pingping')">加入購物車</button>
+      <button onclick="addToCart('lili')">加入購物車</button>
     </div>
   </div>
 </section>
 
+<!-- 可以繼續複製上面區塊做其他角色：修、瀓硩、澂烲 -->
+
 <footer>
-  感謝你走進繡骨台 🎭
+  感謝你走進春綺樓 🌸
 </footer>
 
 <!-- Swiper -->
@@ -178,7 +180,7 @@
   });
 </script>
 
-<!-- 加入購物車功能 -->
+<!-- 購物車功能 -->
 <script>
 function addToCart(id) {
   const section = document.getElementById(id);
