@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>春綺樓・公仔收藏系列</title>
 
-  <!-- Swiper -->
+  <!-- Swiper套件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <style>
@@ -55,7 +55,11 @@
       align-items: center;
       justify-content: center;
     }
-    .character-swiper img, .character-illustration img {
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide img, .character-illustration img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -120,7 +124,7 @@
       color: #c1a7a5;
       padding: 40px 20px 20px;
     }
-    /* 微光塵埃粒子 */
+    /* 粒子 */
     .dust {
       position: fixed;
       top: -5px;
@@ -158,22 +162,21 @@
           <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
           <div class="swiper-slide"><img src="3.1.png" alt="黎禮公仔3"></div>
         </div>
-        <div class="swiper-pagination"></div> <!-- 分頁點點 -->
+        <div class="swiper-pagination"></div> <!-- 必須有分頁點點 -->
       </div>
     </div>
     
-    <!-- 右：角色立繪 -->
+    <!-- 右：角色原畫 -->
     <div class="character-illustration">
       <img src="lili-main.png" alt="黎禮角色原圖">
     </div>
   </div>
 
-  <!-- 名字＋副標語 -->
+  <!-- 角色名字＋副標＋選單 -->
   <div class="character-text">
     <h2>黎禮｜Li Li</h2>
     <h3>冷月之下，靜守一場無聲的相遇。</h3>
 
-    <!-- 購物區塊（跟副標語放一起） -->
     <div class="buy-section" id="lili">
       <div class="buy-left">
         <select id="lili-select">
@@ -199,12 +202,14 @@
 <!-- Swiper功能 -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
-  const swipers = document.querySelectorAll('.swiper');
-  swipers.forEach(function(swiperEl) {
+  document.querySelectorAll('.swiper').forEach(swiperEl => {
     new Swiper(swiperEl, {
       loop: true,
       autoplay: { delay: 3000 },
-      pagination: { el: swiperEl.querySelector('.swiper-pagination'), clickable: true },
+      pagination: {
+        el: swiperEl.querySelector('.swiper-pagination'),
+        clickable: true,
+      }
     });
   });
 </script>
@@ -230,7 +235,7 @@ function addToCart(id) {
 }
 </script>
 
-<!-- 微光塵埃粒子 -->
+<!-- 微光塵埃 -->
 <script>
 for (let i = 0; i < 50; i++) {
   let dust = document.createElement('div');
