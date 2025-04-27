@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>春綺樓・公仔收藏系列</title>
 
-  <!-- Swiper套件 -->
+  <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <style>
@@ -38,13 +38,13 @@
       border-radius: 20px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.08);
     }
-    .character-wrapper {
+    .top-wrapper, .bottom-wrapper {
       display: flex;
       flex-wrap: nowrap;
       align-items: stretch;
       gap: 20px;
     }
-    .character-swiper, .character-illustration {
+    .character-left, .character-right {
       flex: 1 1 50%;
       min-width: 0;
       aspect-ratio: 3/4;
@@ -54,69 +54,67 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
     }
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
-    .swiper-slide img, .character-illustration img {
+    .character-left img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 10px;
       display: block;
     }
-    .character-text {
-      text-align: center;
-      margin: 20px 0 10px;
+    .character-right p {
+      font-size: 1.1em;
+      color: #5b4b47;
+      padding: 20px;
+      line-height: 1.6em;
     }
-    .character-text h2 {
-      font-size: 2em;
-      margin: 0;
+    .swiper {
+      width: 100%;
+      height: 100%;
     }
-    .character-text h3 {
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+    .product-description {
+      padding: 20px;
+      text-align: left;
+      color: #5b4b47;
       font-size: 1em;
-      color: #7a6f67;
-      margin-top: 8px;
-      font-style: italic;
+      line-height: 1.8em;
     }
     .buy-section {
-      margin-top: 10px;
+      margin-top: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    .buy-left {
-      display: flex;
-      align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
-    .buy-left select, .buy-left p {
+    .buy-section select {
       padding: 8px 12px;
-      font-size: 1em;
       border-radius: 20px;
       border: 1px solid #ccc;
-      background-color: #fff9f7;
+      background: #fff9f7;
       color: #4a4038;
-    }
-    .buy-right button {
-      padding: 10px 25px;
       font-size: 1em;
-      background-color: #b07b78;
-      color: white;
-      border: none;
+    }
+    .buy-section button {
+      padding: 10px 20px;
       border-radius: 25px;
+      border: none;
+      background: #b07b78;
+      color: #fff;
+      font-size: 1em;
       cursor: pointer;
       transition: background-color 0.3s;
     }
-    .buy-right button:hover {
-      background-color: #a88c8a;
-    }
-    .buy-right button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
+    .buy-section button:hover {
+      background: #a88c8a;
     }
     footer {
       text-align: center;
@@ -124,22 +122,23 @@
       color: #c1a7a5;
       padding: 40px 20px 20px;
     }
-    /* 粒子 */
-    .dust {
+    /* 櫻花飄落 */
+    .sakura {
       position: fixed;
-      top: -5px;
-      width: 5px;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite, sway ease-in-out infinite;
       opacity: 0.7;
-      animation: dustMove linear infinite;
       pointer-events: none;
-      z-index: 1;
+      z-index: 9999;
     }
-    @keyframes dustMove {
-      0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-      100% { transform: translate(40vw, 110vh) scale(0.5); opacity: 0; }
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+    @keyframes sway {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(20px); }
     }
   </style>
 </head>
@@ -153,56 +152,62 @@
 
 <section class="character-section">
   
-  <div class="character-wrapper">
-    <!-- 左：滑動公仔 -->
-    <div class="character-swiper">
+  <!-- 上半部：原畫＋小短文 -->
+  <div class="top-wrapper">
+    <div class="character-left">
+      <img src="lili-main.png" alt="黎禮角色原畫">
+    </div>
+    <div class="character-right">
+      <p>他在冷月之下靜靜守望，  
+      那場未曾開口的相遇，  
+      留在了誰的心裡。</p>
+    </div>
+  </div>
+
+  <!-- 下半部：公仔滑動＋款式介紹 -->
+  <div class="bottom-wrapper" style="margin-top: 40px;">
+    <div class="character-left">
       <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="1.1.png" alt="黎禮公仔1"></div>
           <div class="swiper-slide"><img src="2.1.png" alt="黎禮公仔2"></div>
           <div class="swiper-slide"><img src="3.1.png" alt="黎禮公仔3"></div>
         </div>
-        <div class="swiper-pagination"></div> <!-- 必須有分頁點點 -->
+        <div class="swiper-pagination"></div>
       </div>
     </div>
-    
-    <!-- 右：角色原畫 -->
-    <div class="character-illustration">
-      <img src="li.png" alt="黎禮角色原圖">
-    </div>
-  </div>
 
-  <!-- 角色名字＋副標＋選單 -->
-  <div class="character-text">
-    <h2>黎禮｜Li Li</h2>
-    <h3>冷月之下，靜守一場無聲的相遇。</h3>
-
-    <div class="buy-section" id="lili">
-      <div class="buy-left">
+    <div class="character-right">
+      <div class="product-description">
+        <strong>款式A｜微笑版</strong><br>
+        他難得的柔和神情，輕輕彎起嘴角。<br><br>
+        <strong>款式B｜戰鬥版</strong><br>
+        血跡未乾，仍然挺立的身影。<br><br>
+        <strong>款式C｜受傷版</strong><br>
+        帶著未縫合的傷痕，卻依然堅定。
+      </div>
+      <div class="buy-section" id="lili">
         <select id="lili-select">
           <option value="款式A">款式A</option>
           <option value="款式B">款式B</option>
           <option value="款式C">款式C</option>
         </select>
-        <p>庫存：<span class="stock">5</span> 件</p>
-      </div>
-      <div class="buy-right">
         <button onclick="addToCart('lili')">加入購物車</button>
       </div>
     </div>
-
   </div>
 
 </section>
 
 <footer>
-  感謝你走進春綺樓 🌸
+  感謝你走進春綺樓的世界 🌸
 </footer>
 
-<!-- Swiper功能 -->
+<!-- Swiper -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
-  document.querySelectorAll('.swiper').forEach(swiperEl => {
+  const swipers = document.querySelectorAll('.swiper');
+  swipers.forEach(swiperEl => {
     new Swiper(swiperEl, {
       loop: true,
       autoplay: { delay: 3000 },
@@ -217,37 +222,19 @@
 <!-- 購物車功能 -->
 <script>
 function addToCart(id) {
-  const section = document.getElementById(id);
-  const stockSpan = section.querySelector('.stock');
   const select = document.getElementById(id + "-select");
-  let stock = parseInt(stockSpan.textContent);
-
-  if (stock > 0) {
-    stock -= 1;
-    stockSpan.textContent = stock;
-    alert(`已將 [${select.value}] 加入購物車！`);
-    if (stock === 0) {
-      const button = section.querySelector('button');
-      button.textContent = "已售完";
-      button.disabled = true;
-    }
-  }
+  const selectedOption = select.options[select.selectedIndex].text;
+  alert(`已將【${selectedOption}】加入購物車！`);
 }
 </script>
 
-<!-- 微光塵埃 -->
+<!-- 櫻花飄落效果 -->
 <script>
-for (let i = 0; i < 50; i++) {
-  let dust = document.createElement('div');
-  dust.className = 'dust';
-  dust.style.left = Math.random() * 100 + 'vw';
-  dust.style.width = (4 + Math.random() * 2) + 'px';
-  dust.style.height = (4 + Math.random() * 2) + 'px';
-  dust.style.animationDuration = (25 + Math.random() * 25) + 's';
-  dust.style.opacity = 0.4 + Math.random() * 0.3;
-  document.body.appendChild(dust);
-}
-</script>
-
-</body>
-</html>
+for (let i = 0; i < 30; i++) {
+  let sakura = document.createElement('div');
+  sakura.className = 'sakura';
+  sakura.textContent = '🌸';
+  sakura.style.left = Math.random() * 100 + 'vw';
+  sakura.style.fontSize = (14 + Math.random() * 10) + 'px';
+  sakura.style.animationDuration = (10 + Math.random() * 10) + 's, ' + (4 + Math.random() * 4) + 's';
+  sakura.style.opacity =
