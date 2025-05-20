@@ -1,1 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>繡骨台</title>
 
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #111111; /* 深黑背景 */
+      font-family: 'Poppins', sans-serif;
+      color: #d8d0c5; /* 舊米白字體 */
+      overflow-x: hidden;
+      position: relative;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #a89c88;
+    }
+    .character-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+    .character-block {
+      background: rgba(30,30,30,0.6); /* 深灰半透明 */
+      border: 1px solid #3a3a3a;
+      border-radius: 20px;
+      padding: 30px 20px;
+      margin-bottom: 60px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 10;
+    }
+    .character-title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #eaeaea;
+      font-weight: 600;
+    }
+    .top-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .character-left, .character-right {
+      flex: 1 1 45%;
+      min-width: 200px;
+      text-align: center;
+    }
+    .character-left img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+      object-fit: cover;
+    }
+    .character-right p {
+      font-size: 1.1em;
+      padding: 10px;
+      line-height: 1.8em;
+      color: #d8d0c5;
+    }
+    .swiper {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .swiper-slide img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+    }
+    .product-description {
+      margin-bottom: 20px;
+      font-size: 1em;
+      line-height: 1.6em;
+      text-align: center;
+    }
+    .buy-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .buy-section select {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: 1px solid #6e5b43;
+      background: transparent;
+      color: #d8d0c5;
+      font-size: 1em;
+    }
+    .buy-section button {
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      background: #6e5b43;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .buy-section button:hover {
+      background: #917856;
+    }
+    .stock-info {
+      font-size: 1em;
+      color: #a89c88;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #7c736a;
+      padding: 40px 20px 20px;
+    }
+    /* 微光塵埃粒子 */
+    .dust {
+      position: fixed;
+      top: -5px;
+      width: 5px;
+      height: 5px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: dustMove linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes dustMove {
+      0% { transform: translate(0,0) scale(1); opacity: 0.3; }
+      100% { transform: translate(30vw, 120vh) scale(0.5); opacity: 0; }
+    }
+        .back-to-home {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #b07b78;
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 10000;
+}
+.back-to-home:hover {
+  background: #a88c8a;
+  transform: scale(1.1);
+}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>繡骨台</h1>
+  <p>舊夢未歇，戲魂未央</p>
+</header>
+
+<section class="character-section">
+  <!-- 🔥平蘋｜Pingpin 區塊🔥 -->
+<div class="character-block">
+  <h2 class="character-title">平蘋｜Pingpin</h2>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="pingpin-1.png" alt="平蘋公仔1"></div>
+      <div class="swiper-slide"><img src="pingpin-2.png" alt="平蘋公仔2"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+  <!-- 🔥佐左｜Sakuza 區塊🔥 -->
+<div class="character-block">
+  <h2 class="character-title">佐左｜Sakuza</h2>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="sakuza-1.png" alt="佐左公仔1"></div>
+      <div class="swiper-slide"><img src="sakuza-2.png" alt="佐左公仔2"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+  <!-- 🔥佑釉｜Youyou 區塊🔥 -->
+<div class="character-block">
+  <h2 class="character-title">佑釉｜Youyou</h2>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="youyou-1.png" alt="佑祐公仔1"></div>
+      <div class="swiper-slide"><img src="youyou-2.png" alt="佑祐公仔2"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+      <!-- 🔥安萻｜Anan 區塊🔥 -->
+<div class="character-block">
+  <h2 class="character-title">安萻｜Anan</h2>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="anan-1.png" alt="安萻公仔1"></div>
+      <div class="swiper-slide"><img src="anan-2.png" alt="安萻公仔2"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+  </section>
+
+<!-- footer感謝 -->
+<footer>
+  餘燼未冷，舊戲猶唱。🖤
+</footer>
+
+<!-- Swiper 滑動功能 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  document.querySelectorAll('.swiper').forEach(swiperEl => {
+    new Swiper(swiperEl, {
+      loop: true,
+      autoplay: { delay: 3000 },
+      pagination: {
+        el: swiperEl.querySelector('.swiper-pagination'),
+        clickable: true
+      }
+    });
+  });
+</script>
+
+<!-- 加入購物車功能 -->
+<script>
+function addToCart(id) {
+  const select = document.getElementById(id + "-select");
+  const selectedOption = select.options[select.selectedIndex].text;
+  alert(`已將【${selectedOption}】加入購物車！`);
+}
+</script>
+
+<!-- 微光塵埃粒子特效 -->
+<script>
+for (let i = 0; i < 50; i++) {
+  let dust = document.createElement('div');
+  dust.className = 'dust';
+  dust.style.left = Math.random() * 100 + 'vw';
+  dust.style.width = (3 + Math.random() * 2) + 'px';
+  dust.style.height = (3 + Math.random() * 2) + 'px';
+  dust.style.animationDuration = (30 + Math.random() * 20) + 's';
+  dust.style.opacity = 0.2 + Math.random() * 0.3;
+  document.body.appendChild(dust);
+}
+</script>
+<a href="photo.html" class="back-to-home" title="回首頁">🏠</a>
+</body>
+</html>
