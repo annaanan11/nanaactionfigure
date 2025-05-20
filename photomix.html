@@ -4,17 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>混池</title>
-
-  <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #fdfaf7;
+      background: #111014;
       font-family: 'Poppins', sans-serif;
-      color: #5b4b47;
+      color: #e0d7cf;
       overflow-x: hidden;
       position: relative;
     }
@@ -25,10 +24,11 @@
     header h1 {
       font-size: 2.8em;
       margin-bottom: 10px;
+      color: #e0d7cf;
     }
     header p {
       font-size: 1.2em;
-      color: #a88c8a;
+      color: #a8a8a8;
     }
     .character-section {
       max-width: 1100px;
@@ -36,18 +36,20 @@
       padding: 20px;
     }
     .character-block {
-      background: rgba(255,255,255,0.5);
-      border: 1px solid #e0d7cf;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #2e2e2e;
       border-radius: 20px;
       padding: 30px 20px;
       margin-bottom: 60px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+      position: relative;
+      z-index: 10;
     }
     .character-title {
       text-align: center;
       font-size: 2em;
       margin-bottom: 20px;
-      color: #5b4b47;
+      color: #e0d7cf;
       font-weight: 600;
     }
     .top-wrapper {
@@ -67,13 +69,14 @@
       width: 100%;
       height: auto;
       border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       object-fit: cover;
     }
     .character-right p {
       font-size: 1.1em;
       padding: 10px;
       line-height: 1.8em;
+      color: #c5bdb8;
     }
     .swiper {
       width: 100%;
@@ -91,7 +94,7 @@
       max-height: 400px;
       object-fit: contain;
       border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 8px rgba(255,255,255,0.05);
     }
     .product-description {
       margin-bottom: 20px;
@@ -109,90 +112,77 @@
     .buy-section select {
       padding: 8px 12px;
       border-radius: 20px;
-      border: 1px solid #b07b78;
+      border: 1px solid #888;
       background: transparent;
-      color: #5b4b47;
+      color: #e0d7cf;
       font-size: 1em;
     }
     .buy-section button {
       padding: 10px 20px;
       border-radius: 25px;
       border: none;
-      background: #b07b78;
+      background: #584b47;
       color: #fff;
       font-size: 1em;
       cursor: pointer;
       transition: background-color 0.3s;
     }
     .buy-section button:hover {
-      background: #a88c8a;
+      background: #76615d;
     }
     .stock-info {
       font-size: 1em;
-      color: #a88c8a;
+      color: #a8a8a8;
     }
     footer {
       text-align: center;
       font-size: 0.9em;
-      color: #c1a7a5;
+      color: #777;
       padding: 40px 20px 20px;
     }
-    .character-block {
-  background: rgba(255,255,255,0.5);
-  border: 1px solid #e0d7cf;
-  border-radius: 20px;
-  padding: 30px 20px;
-  margin-bottom: 60px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  position: relative; /* 加這行！讓它有z-index屬性 */
-  z-index: 10; /* ←比櫻花高出很多 */
-}
-    /* 櫻花CSS */
-    .sakura {
-  position: fixed;
-  top: -10px;
-  font-size: 20px;
-  animation: fall linear infiFnite, sway ease-in-out infinite;
-  opacity: 0.6;
-  pointer-events: none;
-  z-index: 1; /* ←改成小小的1！ */
-}
-@keyframes fall {
-  0% { transform: translateY(-10px) rotate(0deg); }
-  100% { transform: translateY(110vh) rotate(360deg); }
-}
-@keyframes sway {
-  0%, 100% { transform: translateX(0px); }
-  50% { transform: translateX(20px); }
-}
+
+    .feather {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite, sway ease-in-out infinite;
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+    @keyframes sway {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(20px); }
+    }
 
     .back-to-home {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #b07b78;
-  color: white;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: background-color 0.3s, transform 0.3s;
-  z-index: 10000;
-}
-.back-to-home:hover {
-  background: #a88c8a;
-  transform: scale(1.1);
-}
-</style>
-
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #584b47;
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s, transform 0.3s;
+      z-index: 10000;
+    }
+    .back-to-home:hover {
+      background: #76615d;
+      transform: scale(1.1);
+    }
   </style>
 </head>
-
 <body>
 
 <header>
@@ -201,56 +191,17 @@
 </header>
 
 <section class="character-section">
-    <!-- 🔥黎禮｜Li Li 區塊🔥 -->
-  <div class="character-block">
-    <h2 class="character-title">黎禮｜Li Li</h2>
-    
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="li1.png" alt="黎禮1"></div>
-        <div class="swiper-slide"><img src="li2.png" alt="黎禮2"></div>
-        <div class="swiper-slide"><img src="li2.png" alt="黎禮3"></div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
+  <!-- 這裡可以複製 character-block 為每位角色新增展示區塊 -->
+</section>
 
-    <!-- 🔥修｜Li Li 區塊🔥 -->
-  <div class="character-block">
-    <h2 class="character-title">黎禮｜Li Li</h2>
-    
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="li1.png" alt="黎禮1"></div>
-        <div class="swiper-slide"><img src="li2.png" alt="黎禮2"></div>
-        <div class="swiper-slide"><img src="li2.png" alt="黎禮3"></div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-
-    <!-- 🔥黎禮｜Li Li 區塊🔥 -->
-  <div class="character-block">
-    <h2 class="character-title">黎禮｜Li Li</h2>
-    
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="li1.png" alt="黎禮1"></div>
-        <div class="swiper-slide"><img src="li2.png" alt="黎禮2"></div>
-        <div class="swiper-slide"><img src="li2.png" alt="黎禮3"></div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-
-  </section>
-
-<!-- footer感謝 -->
 <footer>
-  一晌春綺 🌸
+  混沌之愛 🖤
 </footer>
 
-<!-- Swiper 滑動功能 -->
+<!-- 回首頁按鈕 -->
+<a href="photo.html" class="back-to-home" title="回首頁">🏠</a>
+
+<!-- Swiper 功能 -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
   document.querySelectorAll('.swiper').forEach(swiperEl => {
@@ -265,28 +216,19 @@
   });
 </script>
 
-<!-- 加入購物車功能 -->
+<!-- 黑羽毛飄落特效 -->
 <script>
-function addToCart(id) {
-  const select = document.getElementById(id + "-select");
-  const selectedOption = select.options[select.selectedIndex].text;
-  alert(`已將【${selectedOption}】加入購物車！`);
+for (let i = 0; i < 30; i++) {
+  let feather = document.createElement('div');
+  feather.className = 'feather';
+  feather.textContent = '🪶';
+  feather.style.left = Math.random() * 100 + 'vw';
+  feather.style.fontSize = (16 + Math.random() * 12) + 'px';
+  feather.style.animationDuration = (10 + Math.random() * 10) + 's, ' + (4 + Math.random() * 4) + 's';
+  feather.style.opacity = 0.3 + Math.random() * 0.5;
+  document.body.appendChild(feather);
 }
 </script>
 
-<!-- 櫻花飄落特效 -->
-<script>
-for (let i = 0; i < 30; i++) {
-  let sakura = document.createElement('div');
-  sakura.className = 'sakura';
-  sakura.textContent = '🌸';
-  sakura.style.left = Math.random() * 100 + 'vw';
-  sakura.style.fontSize = (14 + Math.random() * 10) + 'px';
-  sakura.style.animationDuration = (10 + Math.random() * 10) + 's, ' + (4 + Math.random() * 4) + 's';
-  sakura.style.opacity = 0.4 + Math.random() * 0.6;
-  document.body.appendChild(sakura);
-}
-</script>
-<a href="photo.html" class="back-to-home" title="回首頁">🏠</a>
 </body>
 </html>
