@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>混池</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #111014;
+      font-family: 'Poppins', sans-serif;
+      color: #e0d7cf;
+      overflow-x: hidden;
+      position: relative;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      color: #e0d7cf;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #a8a8a8;
+    }
+    .character-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+    .character-block {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #2e2e2e;
+      border-radius: 20px;
+      padding: 30px 20px;
+      margin-bottom: 60px;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+      position: relative;
+      z-index: 10;
+    }
+    .character-title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #e0d7cf;
+      font-weight: 600;
+    }
+    .top-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .character-left, .character-right {
+      flex: 1 1 45%;
+      min-width: 200px;
+      text-align: center;
+    }
+    .character-left img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      object-fit: cover;
+    }
+    .character-right p {
+      font-size: 1.1em;
+      padding: 10px;
+      line-height: 1.8em;
+      color: #c5bdb8;
+    }
+    .swiper {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .swiper-slide img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+    }
+    .product-description {
+      margin-bottom: 20px;
+      font-size: 1em;
+      line-height: 1.6em;
+      text-align: center;
+    }
+    .buy-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .buy-section select {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: 1px solid #888;
+      background: transparent;
+      color: #e0d7cf;
+      font-size: 1em;
+    }
+    .buy-section button {
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      background: #584b47;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .buy-section button:hover {
+      background: #76615d;
+    }
+    .stock-info {
+      font-size: 1em;
+      color: #a8a8a8;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      padding: 40px 20px 20px;
+    }
+
+    .feather {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite, sway ease-in-out infinite;
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+    @keyframes sway {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(20px); }
+    }
+
+    .back-to-home {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #584b47;
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s, transform 0.3s;
+      z-index: 10000;
+    }
+    .back-to-home:hover {
+      background: #76615d;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>混池</h1>
+  <p>和你一同沉淪的夜晚</p>
+</header>
+
+<section class="character-section">
+  <!-- 這裡可以複製 character-block 為每位角色新增展示區塊 -->
+    <!-- 🔥梅玫｜Mei Mei 區塊🔥 -->
+  <div class="character-block">
+    <h2 class="character-title">梅玫｜Mei Mei</h2>
+    
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="meimei1.png" alt="梅玫1"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+      <!-- 🔥甯檸｜Ning Ning🔥 -->
+  <div class="character-block">
+    <h2 class="character-title">甯檸｜Ning Ning</h2>
+    
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="ningning1.png" alt="甯檸1"></div>
+        <div class="swiper-slide"><img src="ningning2.png" alt="甯檸2"></div>
+        <div class="swiper-slide"><img src="ningning3.png" alt="甯檸3"></div>
+        <div class="swiper-slide"><img src="ningning4.png" alt="甯檸4"></div>
+        <div class="swiper-slide"><img src="ningning5.jpg" alt="甯檸5"></div>
+        <div class="swiper-slide"><img src="ningning6.png" alt="甯檸6"></div>
+        <div class="swiper-slide"><img src="ningning7.png" alt="甯檸7"></div>
+        <div class="swiper-slide"><img src="ningning8.png" alt="甯檸8"></div>
+        <div class="swiper-slide"><img src="ningning9.png" alt="甯檸9"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+      <!-- 🔥冪宓｜Mi Mi 區塊🔥 -->
+  <div class="character-block">
+    <h2 class="character-title">冪宓｜Mi Mi</h2>
+    
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="mimi1.png" alt="冪宓1"></div>
+        <div class="swiper-slide"><img src="mimi2.png" alt="冪宓2"></div>
+        <div class="swiper-slide"><img src="mimi3.png" alt="冪宓3"></div>
+        <div class="swiper-slide"><img src="mimi4.png" alt="冪宓4"></div>
+        <div class="swiper-slide"><img src="mimi5.png" alt="冪宓5"></div>
+        <div class="swiper-slide"><img src="mimi6.png" alt="冪宓6"></div>
+        <div class="swiper-slide"><img src="mimi7.png" alt="冪宓7"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+        <!-- 🔥潯洵｜Xun Xun 區塊🔥 -->
+  <div class="character-block">
+    <h2 class="character-title">潯洵｜Xun Xun</h2>
+    
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="xunxun1.png" alt="潯洵1"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+  </section>
+<footer>
+  混沌之愛 🖤
+</footer>
+
+<!-- 回首頁按鈕 -->
+<a href="photo.html" class="back-to-home" title="回首頁">🏠</a>
+
+<!-- Swiper 功能 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  document.querySelectorAll('.swiper').forEach(swiperEl => {
+    new Swiper(swiperEl, {
+      loop: true,
+      autoplay: { delay: 3000 },
+      pagination: {
+        el: swiperEl.querySelector('.swiper-pagination'),
+        clickable: true
+      }
+    });
+  });
+</script>
+
+<!-- 黑羽毛飄落特效 -->
+<script>
+for (let i = 0; i < 30; i++) {
+  let feather = document.createElement('div');
+  feather.className = 'feather';
+  feather.textContent = '🪶';
+  feather.style.left = Math.random() * 100 + 'vw';
+  feather.style.fontSize = (16 + Math.random() * 12) + 'px';
+  feather.style.animationDuration = (10 + Math.random() * 10) + 's, ' + (4 + Math.random() * 4) + 's';
+  feather.style.opacity = 0.3 + Math.random() * 0.5;
+  document.body.appendChild(feather);
+}
+</script>
+
+</body>
+</html>
